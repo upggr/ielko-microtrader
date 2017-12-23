@@ -1,0 +1,13 @@
+{
+  "name": "cryptopia-api-php",
+  "homepage": "https://github.com/upggr/cryptopia-api-php",
+  "_release": "168fddc7f7",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "168fddc7f732e2a245a73cb41a2604d3046f7a5a"
+  },
+  "_source": "https://github.com/upggr/cryptopia-api-php.git",
+  "_target": "*",
+  "_originalSource": "upggr/cryptopia-api-php"
+}

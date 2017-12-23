@@ -1,1 +1,13 @@
-Microtrader in node
+IELKO MICROTRADER
+
+A strategy to play on cryptopia.
+
+Strategy has been tested with dodge and does make profit, but slowly.
+
+Installation :
+1. Clone this repo on your php server (locally or remotely).
+2. Rename config_sample.php to config.php
+3. Edit coin and other vars in strategy1.php
+4. Set a cron to run strategy1.php every 5 minutes, or run it yourself from the browser and check the output!
+
+ 
