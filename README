@@ -7,6 +7,21 @@ Strategy has been tested with dodge and does make profit, but slowly.
 Installation :
 1. Clone this repo on your php server (locally or remotely).
 2. Rename config_sample.php to config.php and add your cryptopia api and secret
-3. Edit coin and other vars in strategy1.php 
+3. Edit coin and other vars in strategy1.php
 4. Set a cron to run strategy1.php every 5 minutes, or run it yourself from the browser and check the output!
+
+
+Strategy1 :
+On the sample strategy provided,
+we are targeting all DOGE pairs in cryptopia that have a price < 0.5 DOGE , have traded more than 20 times in the past 48 hours, had movement of more than 10% in the past 48 hours, were selling mostly in the past 48 hours. We are buying in increments of 20 DOGE and whenever we buy we also create a sell order at a price 5% more than the buy price.
+
+
+Variables/Strategy
+![Variables/Strategy](https://raw.githubusercontent.com/upggr/ielko-microtrader/master/screenshots/vars.png)
+
+Debug output
+![Debug output](https://raw.githubusercontent.com/upggr/ielko-microtrader/master/screenshots/web.png)
+
+Orders as seen on cryptopia!
+![Orders as seen on cryptopia](https://raw.githubusercontent.com/upggr/ielko-microtrader/master/screenshots/cryptopia.png)
 
