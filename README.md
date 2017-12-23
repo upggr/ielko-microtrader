@@ -19,8 +19,12 @@ we are targeting all DOGE pairs in cryptopia that have a price < 0.5 DOGE , have
 Variables/Strategy
 ![Variables/Strategy](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/vars.png)
 
+
+
 Debug output
 ![Debug output](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/web.png)
+
+
 
 Orders as seen on cryptopia!
 ![Orders as seen on cryptopia](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/cryptopia.png)
