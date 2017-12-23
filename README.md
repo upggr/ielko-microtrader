@@ -15,17 +15,17 @@ Strategy1 :
 On the sample strategy provided,
 we are targeting all DOGE pairs in cryptopia that have a price < 0.5 DOGE , have traded more than 20 times in the past 48 hours, had movement of more than 10% in the past 48 hours, were selling mostly in the past 48 hours. We are buying in increments of 20 DOGE and whenever we buy we also create a sell order at a price 5% more than the buy price.
 
-
+---
 Variables/Strategy
 ![Variables/Strategy](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/vars.png)
 
 
-
+---
 Debug output
 ![Debug output](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/web.png)
 
 
-
+---
 Orders as seen on cryptopia!
 ![Orders as seen on cryptopia](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/cryptopia.png)
 
