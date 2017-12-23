@@ -1,8 +1,8 @@
-#IELKO MICROTRADER
+#IELKO MICROTRADER#
 
-##A strategy bot that plays on cryptopia all pairs for a coin in one go.
+##A strategy bot that plays on cryptopia all pairs for a coin in one go.##
 
-###Strategy has been tested with dodge and does make profit, but slowly.
+###Strategy has been tested with dodge and does make profit, but slowly.###
 
 Installation :
 1. Clone this repo on your php server (locally or remotely).
