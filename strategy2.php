@@ -9,7 +9,7 @@ try {
    $buyifabove = 10; // when a coin increased $buyifabove % in the last $hours hours will play (buy)
    $targetprofit = 0.15; //target profit to make (sell order)
    $coinbet = 20; //increments of $coin to play
-   $targetcoinration = 0.5; //only play on coins that have last price less than $targetcoinration value than the $coin
+   $targetcoinration = 1; //only play on coins that have last price less than $targetcoinration value than the $coin
    $lowvolume = 20; //only trade the coin if there has been more than $lowvolume transactions in the past $hours hours
 
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
