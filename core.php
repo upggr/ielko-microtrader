@@ -3,7 +3,8 @@ include 'bower_components/cryptopia-api-php/cryptopiaAPI.php';
 include 'config.php';
 try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
-   
+   $strategy = $_GET['strategy'];
+   include($strategy.'.php');
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
      echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", therefore I will start. \n";
