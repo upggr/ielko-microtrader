@@ -26,7 +26,6 @@ try {
                   }
        }
      }
-//echo '<pre>';print_r($coinpool);echo '</pre>';
 echo "found ".sizeof($coinpool)." tradable coins \n";
   $coinsinorder = $ct->activeOrders();
   foreach ($exludecoins as $key => $value) {
