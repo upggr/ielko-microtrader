@@ -7,5 +7,5 @@
    $coinbet = 20; //increments of $coin to play
    $targetcoinration = 2; //only play on coins that have last price less than $targetcoinration value than the $coin
    $lowvolume = 10; //only trade the coin if there has been more than $lowvolume transactions in the past $hours hours
-   $exludecoins = array("1337","808","MEOW","MCRN");
+   $exludecoins = array("MEOW","MCRN");
  ?>
