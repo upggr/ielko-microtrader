@@ -5,12 +5,13 @@ try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
    $coin = "DOGE"; //what will be the base coin to play to. Effectively this bounds the screen to the DOGE market in cryptopia and only coins in this market.
    $coincap = 20; //how many coins to keep from $coin (not to play them)
-   $hours = 24; //how many hours of market data to analyze
-   $buyifabove = 10; // when a coin increased $buyifabove % in the last $hours hours will play (buy)
+   $hours = 10; //how many hours of market data to analyze
+   $buyifabove = 5; // when a coin increased $buyifabove % in the last $hours hours will play (buy)
    $targetprofit = 0.15; //target profit to make (sell order)
    $coinbet = 20; //increments of $coin to play
    $targetcoinration = 2; //only play on coins that have last price less than $targetcoinration value than the $coin
-   $lowvolume = 20; //only trade the coin if there has been more than $lowvolume transactions in the past $hours hours
+   $lowvolume = 10; //only trade the coin if there has been more than $lowvolume transactions in the past $hours hours
+   $exludecoins = ("MEOW","MCRN");
 
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
@@ -28,12 +29,21 @@ try {
 //echo '<pre>';print_r($coinpool);echo '</pre>';
 echo "found ".sizeof($coinpool)." tradable coins \n";
   $coinsinorder = $ct->activeOrders();
-  foreach ($coinsinorder as $key => $value) {
+  foreach ($exludecoins as $key => $value) {
     if (($key_s = array_search(str_replace($coin,"",$value['symbol']), $coinpool)) !== false) {
     unset($coinpool[$key_s]);
 }
   }
 echo "Reduced coin pool to ".sizeof($coinpool)." tradable coins (exluded coins on order)\n";
+
+
+foreach ($exludecoins as $key => $value) {
+  if (($key_s = array_search(str_replace($coin,"",$value['symbol']), $coinpool)) !== false) {
+  unset($coinpool[$key_s]);
+}
+}
+echo "Reduced coin pool to ".sizeof($coinpool)." tradable coins (exluded coins that were excluded manually)\n";
+
 
 for ($x = 0; $x <= sizeof($coinpool); $x++) {
     echo "Coin ".$x." out of ".sizeof($coinpool)."\n";
