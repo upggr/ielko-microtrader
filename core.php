@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
 include 'bower_components/cryptopia-api-php/cryptopiaAPI.php';
 include 'config.php';
 try {
@@ -91,11 +92,12 @@ else
   echo $coinpool[$x]." started at ".$minprice_d." and finished at ".$maxprice_d."\n";
   echo $coinpool[$x]." flunctuated ".round($flunc)."% in the past ".$hours." hours\n" ;
   echo $coinpool[$x]." changed ".round($difference)."% in the past ".$hours." hours \n" ;
+    echo "---=== SUMMARY ===---\n";
   echo "Summary for ".$coinpool[$x]." : direction is : ".$direction_flag." and change > buyifabove (".$difference." > ".$buyifabove.") and tradeflad = ".$tradeflag."\n";
   echo "---=== ANALYSIS ===---\n";
   if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag == 'buy')) {
+      echo "---=== VERDICT ===---\n";
   echo "I have decided to play with ".$coinpool[$x]."\n";
-
     $api_url_constr2 = "https://www.cryptopia.co.nz/api/GetMarketOrders/".$coinpool[$x]."_".$coin."/10";
     echo $api_url_constr2."\n";
     $result2 = file_get_contents($api_url_constr2);
@@ -129,6 +131,7 @@ else
   }
   }
   else {
+    echo "---=== VERDICT ===---\n";
   echo "I have decided not to play with ".$coinpool[$x]."\n\n";
   }
   }
