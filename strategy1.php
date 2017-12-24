@@ -1,7 +1,6 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 include 'bower_components/cryptopia-api-php/cryptopiaAPI.php';
 include 'config.php';
 try {
