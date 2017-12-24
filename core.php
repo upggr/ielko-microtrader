@@ -135,7 +135,7 @@ else
   }
   }
   else {
-   echo "Problem getting market data or trade volume less than the thresholds ('.$transno.' < '.$lowvolume.'), will not trade this coin...\n\n";
+   echo "Problem getting market data or trade volume less than the thresholds (".$transno." < ".$lowvolume."), will not trade this coin...\n\n";
   }
 
 
