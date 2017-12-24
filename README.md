@@ -11,8 +11,10 @@ Installation :
 4. Set a cron to run strategy1.php every 5 minutes, or run it yourself from the browser and check the output!
 
 Note** Make sure you include the folder from the https://github.com/upggr/cryptopia-api-php locally in the bower components folder
+
 Note*** here is a sample cron job that will run the script on your server every 10 minutes :
-"*/10 * * * * php -q /home/user/webapps/yoursite.com/ielko-microtrader/strategy1.php"
+
+*/10 * * * * php -q /home/user/webapps/yoursite.com/ielko-microtrader/strategy1.php
 
 
 Strategy1 :
