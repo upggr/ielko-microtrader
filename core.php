@@ -4,7 +4,7 @@ include 'config.php';
 try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
    $strategy = $_GET['strategy'];
-  // $strategy = 'strategy1';
+   $strategy = 'strategy1';
    echo $strategy;
    include $_GET['strategy'].'.php';
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
