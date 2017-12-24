@@ -11,7 +11,7 @@ try {
    $coinbet = 20; //increments of $coin to play
    $targetcoinration = 0.5; //only play on coins that have last price less than $targetcoinration value than the $coin
    $lowvolume = 20; //only trade the coin if there has been more than $lowvolume transactions in the past $hours hours
-    $exludecoins = array("MEOW","MCRN");
+   $exludecoins = array("MEOW","MCRN");
 
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
@@ -92,9 +92,10 @@ echo $coinpool[$x]." had a min price of ".$minprice." and a max price of ".$maxp
 echo $coinpool[$x]." started at ".$minprice_d." and finished at ".$maxprice_d."\n";
 echo $coinpool[$x]." flunctuated ".round($flunc)."% in the past ".$hours." hours\n" ;
 echo $coinpool[$x]." changed ".round($difference)."% in the past ".$hours." hours \n" ;
+echo "Summary for ".$coinpool[$x]." : direction is : ".$direction_flag." and change > buyifabove (".$difference." > ".$buyifabove.") and tradeflad = ".$tradeflag."\n";
 
-if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag > 'buy')) {
-      echo "will play with ".$coinpool[$x]."\n";
+if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag == 'buy')) {
+    echo "will play with ".$coinpool[$x]."\n";
 
       $api_url_constr2 = "https://www.cryptopia.co.nz/api/GetMarketOrders/".$coinpool[$x]."_".$coin."/10";
       echo $api_url_constr2."\n";
