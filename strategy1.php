@@ -36,6 +36,7 @@ echo "found ".sizeof($coinpool)." tradable coins \n";
 echo "Reduced coin pool to ".sizeof($coinpool)." tradable coins (exluded coins on order)\n";
 
 for ($x = 0; $x <= sizeof($coinpool); $x++) {
+  echo "Coin ".$x." out of ".sizeof($coinpool)."\n";
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
   if ($mycoinbalance > $coincap) {
    echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. \n";
@@ -51,7 +52,7 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
      $minprice_d = $data['Data'][$transno-1]['Price'];
      $maxprice_d = $data['Data'][0]['Price'];
      $maxprice = max(array_column($data['Data'], 'Price'));
-     for ($y = 0; $y <= sizeof($data['Data']); $y++) {
+     for ($y = 0; $y < sizeof($data['Data']); $y++) {
        if ($data['Data'][$y]['Type'] == 'Buy') {
          $buycounter = $buycounter + 1;
        }
