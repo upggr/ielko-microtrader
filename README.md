@@ -8,7 +8,9 @@ Installation :
 1. Clone this repo on your php server (locally or remotely).
 2. Rename config_sample.php to config.php and add your cryptopia api and secret
 3. Edit coin and other vars in strategy1.php
-4. Set a cron to run index.php?strategy=strategy1 every 10 minutes, or run it yourself from the browser and check the output!
+4. Set a cron to run http://yourserver.com/index.php?strategy=strategy1 every 10 minutes, or run it yourself from the browser and check the output!
+
+Note* If you want to use the commandline on your php server, do it like this : php index.php strategy1 
 
 Note** Make sure you include the folder from the https://github.com/upggr/cryptopia-api-php locally in the bower components folder
 
