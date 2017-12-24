@@ -36,3 +36,7 @@ Orders as seen on cryptopia!
 ---
 ![Orders as seen on cryptopia](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/cryptopia.png)
 
+
+If you like this and you made money, tip me ! :
+
+DOGE : DLSy6fzUTbxqfFW8LSnU9HtfrQpa2MwtMb   (all funs are going back to the experiment pool to improve and create new strategies).
