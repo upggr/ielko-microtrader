@@ -93,7 +93,7 @@ else
   echo $coinpool[$x]." flunctuated ".round($flunc)."% in the past ".$hours." hours\n" ;
   echo $coinpool[$x]." changed ".round($difference)."% in the past ".$hours." hours \n" ;
     echo "---=== SUMMARY ===---\n";
-  echo "Summary for ".$coinpool[$x]." : direction is : ".$direction_flag." and change > buyifabove (".$difference." > ".$buyifabove.") and tradeflad = ".$tradeflag."\n";
+  echo "Summary for ".$coinpool[$x]." : direction is : ".$direction_flag." and change > buyifabove (".$difference." > ".$buyifabove.") and tradeflag = ".$tradeflag."\n";
   if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag == 'buy')) {
       echo "---=== VERDICT ===---\n";
   echo "I have decided to play with ".$coinpool[$x]."\n";
