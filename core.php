@@ -6,7 +6,7 @@ try {
    $strategy = $_GET['strategy'];
    $strategy = 'strategy1';
    echo $strategy;
-   include $_GET['strategy'].'.php';
+   include $strategy.'.php';
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
      echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", therefore I will start. \n";
