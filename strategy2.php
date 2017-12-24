@@ -36,6 +36,7 @@ echo "found ".sizeof($coinpool)." tradable coins \n";
 echo "Reduced coin pool to ".sizeof($coinpool)." tradable coins (exluded coins on order)\n";
 
 for ($x = 0; $x <= sizeof($coinpool); $x++) {
+    echo "Coin ".$x." out of ".sizeof($coinpool)."\n";
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
   if ($mycoinbalance > $coincap) {
    echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. \n";
