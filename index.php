@@ -1,6 +1,6 @@
 <?php
 
 
-include('core.php');
+include 'core.php';
 
  ?>
