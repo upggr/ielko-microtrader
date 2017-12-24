@@ -18,6 +18,8 @@ Note*** here is a sample cron job that will run the script on your server every 
 
 */10 * * * * php -q /home/user/webapps/yoursite.com/ielko-microtrader/index.php strategy_thebest
 
+Note**** Make sure you always pull the newest code from this repo as I keep improving. It is best if you create your own strategy files and do not use strategy1.php to strategy10.php files as I am using those and will keep updating it for my test.
+
 
 Strategy1 :
 On the sample strategy provided,
