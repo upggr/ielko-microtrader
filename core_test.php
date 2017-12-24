@@ -31,14 +31,10 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
   echo "Coin ".$x." out of ".sizeof($coinpool)." (".$coinpool[$x].")\n";
      if (in_array($coinpool[$x] , $exludecoins))
     {
-//////
 echo "Will not trade this coin as it is excluded manually in your strategy settings \n";
-///////
 }
 else
 {
-
-
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
   if ($mycoinbalance > $coincap) {
   echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. \n";
@@ -145,11 +141,6 @@ else
   echo "Balance of ".$mycoinbalance." ".$coin. " is lower than ".$coincap.", therefore I will stop trading now. \n";
   }
   sleep(1);
-
-
-
-
-echo "Will not trade this coin as it is excluded manually in your strategy settings \n";
 }
 
 }
