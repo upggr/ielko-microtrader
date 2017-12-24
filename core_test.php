@@ -6,7 +6,7 @@ try {
 
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
-     echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", therefore I will start. \n";
+     echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", starting to trade... \n";
      $ct->updatePrices();
      $tradepairs = $ct->getPrices();
      $coinpool = array();
@@ -18,17 +18,17 @@ try {
        }
      }
 //echo '<pre>';print_r($coinpool);echo '</pre>';
-echo "found ".sizeof($coinpool)." tradable coins \n";
+echo "I have found ".sizeof($coinpool)." tradable coins \n";
   $coinsinorder = $ct->activeOrders();
   foreach ($coinsinorder as $key => $value) {
     if (($key_s = array_search(str_replace($coin,"",$value['symbol']), $coinpool)) !== false) {
     unset($coinpool[$key_s]);
 }
   }
-echo "Reduced coin pool to ".sizeof($coinpool)." tradable coins (exluded coins on order)\n";
+echo "I have reduced the tradeable coin pool to ".sizeof($coinpool)." (excluded coins that are still on order)\n";
 
 for ($x = 0; $x <= sizeof($coinpool); $x++) {
-  echo "Coin ".$x." out of ".sizeof($coinpool)." (".$coinpool[$x].")\n";
+  echo "Processing coin ".$x." out of ".sizeof($coinpool)." (".$coinpool[$x].")\n";
      if (in_array($coinpool[$x] , $exludecoins))
     {
 echo "Will not trade this coin as it is excluded manually in your strategy settings \n";
@@ -37,10 +37,10 @@ else
 {
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
   if ($mycoinbalance > $coincap) {
-  echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. \n";
+//  echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. \n";
 
   $api_url_constr = "https://www.cryptopia.co.nz/api/GetMarketHistory/".$coinpool[$x]."_".$coin."/".$hours;
-  echo $api_url_constr."\n";
+  //echo $api_url_constr."\n";
   $result = file_get_contents($api_url_constr);
   $data=json_decode($result,true);
   $transno = sizeof($data['Data']);
@@ -84,6 +84,7 @@ else
   else {
   $direction_flag = 'falling';
   }
+  echo "---=== ANALYSIS ===---\n";
   echo "most of the people are in ".$tradeflag." mode\n";
   echo "price is ".$direction_flag."\n";
   echo $coinpool[$x]." had a min price of ".$minprice." and a max price of ".$maxprice."\n";
@@ -91,9 +92,9 @@ else
   echo $coinpool[$x]." flunctuated ".round($flunc)."% in the past ".$hours." hours\n" ;
   echo $coinpool[$x]." changed ".round($difference)."% in the past ".$hours." hours \n" ;
   echo "Summary for ".$coinpool[$x]." : direction is : ".$direction_flag." and change > buyifabove (".$difference." > ".$buyifabove.") and tradeflad = ".$tradeflag."\n";
-
+  echo "---=== ANALYSIS ===---\n";
   if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag == 'buy')) {
-  echo "will play with ".$coinpool[$x]."\n";
+  echo "I have decided to play with ".$coinpool[$x]."\n";
 
     $api_url_constr2 = "https://www.cryptopia.co.nz/api/GetMarketOrders/".$coinpool[$x]."_".$coin."/10";
     echo $api_url_constr2."\n";
@@ -123,12 +124,12 @@ else
   //      $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
       sleep(2);
   //      $ct->sell($coinpool[$x].$coin, $targetcoins-($targetcoins*0.03), ($pricetosell));
-      echo "executed\n\n";
+      echo "Buy order and sell order is executed succesfully\n\n";
    }
   }
   }
   else {
-  echo "will not play with ".$coinpool[$x]."\n\n";
+  echo "I have decided not to play with ".$coinpool[$x]."\n\n";
   }
   }
   else {
