@@ -32,6 +32,8 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
   if ($mycoinbalance > $coincap) {
    echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. \n";
+   if (in_array($coinpool[$x] , $exludecoins))
+  {
    $api_url_constr = "https://www.cryptopia.co.nz/api/GetMarketHistory/".$coinpool[$x]."_".$coin."/".$hours;
    echo $api_url_constr."\n";
    $result = file_get_contents($api_url_constr);
@@ -127,9 +129,12 @@ else {
    else {
      echo 'Problem getting market data or trade volume less than the thresholds ('.$transno.' < '.$lowvolume.'), will not trade this coin...\n\n';
    }
+}
+else
+{
+echo "Will not trade this coin as it is excluded manually in your strategy settings \n";
+}
 
-
-//    echo $coinpool[$x].'\n';
   }
   else {
     echo "Balance of ".$mycoinbalance." ".$coin. " is lower than ".$coincap.", therefore I will stop trading now. \n";
