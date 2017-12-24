@@ -7,16 +7,16 @@ Strategy has been tested with dodge and does make profit, but slowly.
 Installation :
 1. Clone this repo on your php server (locally or remotely).
 2. Rename config_sample.php to config.php and add your cryptopia api and secret
-3. Edit coin and other vars in strategy1.php
-4. Set a cron to run http://yourserver.com/index.php?strategy=strategy1 every 10 minutes, or run it yourself from the browser and check the output!
+3. Create a new strategy file, for example strategy_thebest.php, based on the strategy_sample.php file
+4. Set a cron to run http://yourserver.com/index.php?strategy=strategy_thebest every 10 minutes, or run it yourself from the browser and check the output!
 
-Note* If you want to use the commandline on your php server, do it like this : php index.php strategy1 
+Note* If you want to use the command line on your php server, do it like this : php -q /var/www/placefothefile/index.php strategy_thebest
 
 Note** Make sure you include the folder from the https://github.com/upggr/cryptopia-api-php locally in the bower components folder
 
 Note*** here is a sample cron job that will run the script on your server every 10 minutes :
 
-*/10 * * * * php -q /home/user/webapps/yoursite.com/ielko-microtrader/index.php?strategy=strategy1
+*/10 * * * * php -q /home/user/webapps/yoursite.com/ielko-microtrader/index.php strategy_thebest
 
 
 Strategy1 :
