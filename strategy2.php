@@ -52,11 +52,14 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
      $maxprice_d = $data['Data'][0]['Price'];
      $maxprice = max(array_column($data['Data'], 'Price'));
 
-     for ($y = 0; $y <= sizeof($data['Data']); $y++) {
+     for ($y = 0; $y < sizeof($data['Data']); $y++) {
        if ($data['Data'][$y]['Type'] == 'Buy') {
          $buycounter = $buycounter + 1;
        }
        else if ($data['Data'][$y]['Type'] == 'Sell') {
+         $sellcounter = $sellcounter + 1;
+       }
+       else {
          $sellcounter = $sellcounter + 1;
        }
 
