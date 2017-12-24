@@ -58,7 +58,9 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
        else if ($data['Data'][$y]['Type'] == 'Sell') {
          $sellcounter = $sellcounter + 1;
        }
-
+       else {
+         $sellcounter = $sellcounter + 1;
+       }
 
   //     echo $data['Data'][$y]['Type'].'\n';
      }
@@ -123,7 +125,7 @@ if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag > 
         echo "executed\n\n";
      }
    }
-} 
+}
 else {
   echo "will not play with ".$coinpool[$x]."\n\n";
 }
