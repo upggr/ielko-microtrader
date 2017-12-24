@@ -16,7 +16,7 @@ try {
 
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
-     echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", therefore I will start. <br />";
+     echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", therefore I will start. \n";
      $ct->updatePrices();
      $tradepairs = $ct->getPrices();
      $coinpool = array();
@@ -28,22 +28,22 @@ try {
        }
      }
 //echo '<pre>';print_r($coinpool);echo '</pre>';
-echo 'found '.sizeof($coinpool).' tradable coins <br />';
+echo 'found '.sizeof($coinpool).' tradable coins \n';
   $coinsinorder = $ct->activeOrders();
   foreach ($coinsinorder as $key => $value) {
     if (($key_s = array_search(str_replace($coin,"",$value['symbol']), $coinpool)) !== false) {
     unset($coinpool[$key_s]);
 }
   }
-echo 'Reduced coin pool to '.sizeof($coinpool).' tradable coins (exluded coins on order)<br />';
+echo 'Reduced coin pool to '.sizeof($coinpool).' tradable coins (exluded coins on order)\n';
 
 for ($x = 0; $x <= sizeof($coinpool); $x++) {
 //for ($x = 0; $x <= 10; $x++) {
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
   if ($mycoinbalance > $coincap) {
-   echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. <br />";
+   echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. \n";
    $api_url_constr = "https://www.cryptopia.co.nz/api/GetMarketHistory/".$coinpool[$x]."_".$coin."/".$hours;
-   echo $api_url_constr.'<br />';
+   echo $api_url_constr.'\n';
    $result = file_get_contents($api_url_constr);
    $data=json_decode($result,true);
    $transno = sizeof($data['Data']);
@@ -54,7 +54,7 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
      $minprice_d = $data['Data'][$transno-1]['Price'];
      $maxprice_d = $data['Data'][0]['Price'];
      $maxprice = max(array_column($data['Data'], 'Price'));
-  //   echo sizeof($data['Data']).'<br />';
+  //   echo sizeof($data['Data']).'\n';
   //   echo '<pre>';print_r($data['Data']);echo '<pre>';
      for ($y = 0; $y <= sizeof($data['Data']); $y++) {
        if ($data['Data'][$y]['Type'] == 'Buy') {
@@ -65,18 +65,18 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
        }
 
 
-  //     echo $data['Data'][$y]['Type'].'<br />';
+  //     echo $data['Data'][$y]['Type'].'\n';
      }
      if ($buycounter > $sellcounter)  {
-  //     echo 'looks like more people are buying '.$coinpool[$x].' in the past '.$hours.' hours..<br />';
+  //     echo 'looks like more people are buying '.$coinpool[$x].' in the past '.$hours.' hours..\n';
        $tradeflag = 'buy';
      }
      else if ($buycounter < $sellcounter)  {
-  //     echo 'looks like more people are selling '.$coinpool[$x].' in the past '.$hours.' hours..<br />';
+  //     echo 'looks like more people are selling '.$coinpool[$x].' in the past '.$hours.' hours..\n';
        $tradeflag = 'sell';
      }
      else {
-    //   echo 'unable to find the sentiment (buy/sell) for the past '.$hours.' hours..<br />';
+    //   echo 'unable to find the sentiment (buy/sell) for the past '.$hours.' hours..\n';
        $tradeflag = 'nothing';
      }
 $flunc = (1 - $minprice / $maxprice) * 100;
@@ -87,68 +87,68 @@ if ($maxprice_d - $minprice_d > 0) {
 else {
   $direction_flag = 'falling';
 }
-echo 'most of the people are in "'.$tradeflag.'" mode<br />';
-echo 'price is '.$direction_flag.'<br />';
-echo $coinpool[$x].' had a min price of '.$minprice.' and a max price of '.$maxprice.'<br />';
-echo $coinpool[$x].' started at '.$minprice_d.' and finished at '.$maxprice_d.'<br />';
-echo $coinpool[$x].' flunctuated '.round($flunc).'% in the past '.$hours.' hours<br />' ;
-echo $coinpool[$x].' changed '.round($difference).'% in the past '.$hours.' hours <br />' ;
+echo 'most of the people are in "'.$tradeflag.'" mode\n';
+echo 'price is '.$direction_flag.'\n';
+echo $coinpool[$x].' had a min price of '.$minprice.' and a max price of '.$maxprice.'\n';
+echo $coinpool[$x].' started at '.$minprice_d.' and finished at '.$maxprice_d.'\n';
+echo $coinpool[$x].' flunctuated '.round($flunc).'% in the past '.$hours.' hours\n' ;
+echo $coinpool[$x].' changed '.round($difference).'% in the past '.$hours.' hours \n' ;
 
 if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag > 'buy')) {
-      echo 'will play with '.$coinpool[$x].'<br />';
+      echo 'will play with '.$coinpool[$x].'\n';
 
       $api_url_constr2 = "https://www.cryptopia.co.nz/api/GetMarketOrders/".$coinpool[$x]."_".$coin."/10";
-      echo $api_url_constr2.'<br />';
+      echo $api_url_constr2.'\n';
       $result2 = file_get_contents($api_url_constr2);
       $data2=json_decode($result2,true);
       if ($data2['Success'] == '1') {
   //   echo '<pre>';print_r($data2['Data']['Sell']);echo '<pre>';
-     echo 'I need to buy '.$coinbet.' worth of  '.$coin.'<br />';
+     echo 'I need to buy '.$coinbet.' worth of  '.$coin.'\n';
      if ($data2['Data']['Sell'][0]['Volume'] > $coinbet)
      {
        $pricetobuy = $data2['Data']['Sell'][0]['Price'];
        $pricetosell = $pricetobuy+($pricetobuy*$targetprofit);
        $targetcoins = $coinbet/$pricetobuy;
-       echo 'will buy '.$coinbet.' '.$coin.' worth of '.$coinpool[$x].' at '.$pricetobuy.' (TradePairId = '.$data2['Data']['Sell'][0]['TradePairId'].') ('.$targetcoins.' '.$coinpool[$x].')<br />';
+       echo 'will buy '.$coinbet.' '.$coin.' worth of '.$coinpool[$x].' at '.$pricetobuy.' (TradePairId = '.$data2['Data']['Sell'][0]['TradePairId'].') ('.$targetcoins.' '.$coinpool[$x].')\n';
        $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
        sleep(2);
        $ct->sell($coinpool[$x].$coin, $targetcoins-($targetcoins*0.03), ($pricetosell));
-       echo 'executed<br /><br />';
+       echo 'executed\n\n';
      }
      else {
        echo 'the first sell order is less than the minimum threshold setting ('.$data2['Data']['Sell'][0]['Volume'].' vs '.$coinbet.').
-       Will just buy whatever they sell on the next order<br />';
+       Will just buy whatever they sell on the next order\n';
         $pricetobuy = $data2['Data']['Sell'][1]['Price'];
         $pricetosell = $pricetobuy+($pricetobuy*$targetprofit);
         $targetcoins = $data2['Data']['Sell'][0]['Volume']/$pricetobuy;
-        echo 'will buy '.$data2['Data']['Sell'][0]['Volume'].' '.$coin.' worth of '.$coinpool[$x].' at '.$pricetobuy.' (TradePairId = '.$data2['Data']['Sell'][0]['TradePairId'].') ('.$targetcoins.' '.$coinpool[$x].')<br />';
+        echo 'will buy '.$data2['Data']['Sell'][0]['Volume'].' '.$coin.' worth of '.$coinpool[$x].' at '.$pricetobuy.' (TradePairId = '.$data2['Data']['Sell'][0]['TradePairId'].') ('.$targetcoins.' '.$coinpool[$x].')\n';
   //      $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
         sleep(2);
   //      $ct->sell($coinpool[$x].$coin, $targetcoins-($targetcoins*0.03), ($pricetosell));
-        echo 'executed<br /><br />';
+        echo 'executed\n\n';
      }
    }
 }
 else {
-  echo 'will not play with '.$coinpool[$x].'<br /><br />';
+  echo 'will not play with '.$coinpool[$x].'\n\n';
 }
    }
    else {
-     echo 'Problem getting market data or trade volume less than the thresholds ('.$transno.' < '.$lowvolume.'), will not trade this coin...<br /><br />';
+     echo 'Problem getting market data or trade volume less than the thresholds ('.$transno.' < '.$lowvolume.'), will not trade this coin...\n\n';
    }
 
 
-//    echo $coinpool[$x].'<br />';
+//    echo $coinpool[$x].'\n';
   }
   else {
-    echo "Balance of ".$mycoinbalance." ".$coin. " is lower than ".$coincap.", therefore I will stop trading now. <br />";
+    echo "Balance of ".$mycoinbalance." ".$coin. " is lower than ".$coincap.", therefore I will stop trading now. \n";
   }
 sleep(1);
 }
 
 
  foreach ($coinpool as $key => $value) {
-//echo $value.'<br />';
+//echo $value.'\n';
  }
 //     echo '<pre>';print_r($ct->getPrices());echo '</pre>';
 
