@@ -5,6 +5,7 @@ try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
 //   $strategy = $_GET['strategy'];
    $strategy = 'strategy1';
+   echo $strategy;
    include $strategy.'.php';
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
