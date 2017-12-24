@@ -11,7 +11,7 @@ try {
    $coinbet = 20; //increments of $coin to play
    $targetcoinration = 0.5; //only play on coins that have last price less than $targetcoinration value than the $coin
    $lowvolume = 20; //only trade the coin if there has been more than $lowvolume transactions in the past $hours hours
-   $exludecoins = ("MEOW","MCRN");
+    $exludecoins = array("MEOW","MCRN");
 
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {

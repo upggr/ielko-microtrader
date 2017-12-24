@@ -100,8 +100,9 @@ echo $coinpool[$x]." had a min price of ".$minprice." and a max price of ".$maxp
 echo $coinpool[$x]." started at ".$minprice_d." and finished at ".$maxprice_d."\n";
 echo $coinpool[$x]." flunctuated ".round($flunc)."% in the past ".$hours." hours\n" ;
 echo $coinpool[$x]." changed ".round($difference)."% in the past ".$hours." hours \n" ;
+echo "Summary for ".$coinpool[$x]." : direction is : ".$direction_flag." and change > buyifabove (".$difference." > ".$buyifabove.") and tradeflad = ".$tradeflag."\n";
 
-if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag > 'buy')) {
+if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag == 'buy')) {
       echo "will play with ".$coinpool[$x]."\n";
 
       $api_url_constr2 = "https://www.cryptopia.co.nz/api/GetMarketOrders/".$coinpool[$x]."_".$coin."/10";
