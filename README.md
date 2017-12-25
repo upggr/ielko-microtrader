@@ -9,20 +9,18 @@ Requirements :
 2. This repo. You can just do a "git pull https://github.com/upggr/ielko-microtrader.git" on any folder in any platform, if you have git installed. Or just download this repo in a folder. I suggest you use git, so you can then do a "git update" as this project is constantly updated with new features and fixes!
 
 Installation :
-1. Clone this repo on your php server (locally or remotely).
-2. Rename config_sample.php to config.php and add your cryptopia api and secret
+1. Clone this repo on your php server or php enviroment (locally or remotely).
+2. Rename config_sample.php to config.php and replace "XXX" with your api credentials that you can find in your cryptopia account
 3. Create a new strategy file, for example strategy_thebest.php, based on the strategy_sample.php file
-4. Set a cron to run http://yourserver.com/index.php?strategy=strategy_thebest every 10 minutes, or run it yourself from the browser and check the output!
+4. Note that there is a folder called bower_components that refers to another project. make sure when you download this is included, or go get it manually.
 
-Note* If you want to use the command line on your php server, do it like this : php -q /var/www/placefothefile/index.php strategy_thebest
+Suggestions :
+1. This bot will perform best if you set it to run every 10-20 minutes. so create a cron or other sort of automation to call it ever X minutes
+2. This project is constantly updated, so better have another cron to pull the new code in so you get all updates.
+3. Create your own strategy files based on the template, but please leave strategy1.php-strategy10.php intact, as I will keep updating them as I am working on this.
 
-Note** Make sure you include the folder from the https://github.com/upggr/cryptopia-api-php locally in the bower components folder
-
-Note*** here is a sample cron job that will run the script on your server every 10 minutes :
-
-*/10 * * * * php -q /home/user/webapps/yoursite.com/ielko-microtrader/index.php strategy_thebest
-
-Note**** Make sure you always pull the newest code from this repo as I keep improving. It is best if you create your own strategy files and do not use strategy1.php to strategy10.php files as I am using those and will keep updating it for my tests.
+Running :
+1. If you want to run from the console use "php index-cli.php strategy1" but if you call from the browser just visit http://localhost.or.any.other.address/index.php?strategy=strategy1
 
 
 Strategy1 :
