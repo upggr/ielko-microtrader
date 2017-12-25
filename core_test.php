@@ -98,7 +98,7 @@ else
       echo "---=== VERDICT ===---\n";
   echo "I have decided to play with ".$coinpool[$x]."\n";
     $api_url_constr2 = "https://www.cryptopia.co.nz/api/GetMarketOrders/".$coinpool[$x]."_".$coin."/10";
-    echo $api_url_constr2."\n";
+  //  echo $api_url_constr2."\n";
     $result2 = file_get_contents($api_url_constr2);
     $data2=json_decode($result2,true);
     if ($data2['Success'] == '1') {

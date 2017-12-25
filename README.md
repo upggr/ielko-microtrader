@@ -41,6 +41,11 @@ Orders as seen on cryptopia!
 ![Orders as seen on cryptopia](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/cryptopia.png)
 
 
+Never loose a gainer again
+---
+![Never loose a gainer again](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/gainers.png)
+
+
 Youtube video of a full cycle!
 ---
 [![Full cycle - strategy2](https://img.youtube.com/vi/-79Iq_Bf5FQ/0.jpg)](https://youtu.be/-79Iq_Bf5FQ)
