@@ -4,7 +4,7 @@ include 'bower_components/cryptopia-api-php/cryptopiaAPI.php';
 include 'config.php';
 try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
-
+   var $sellorders = array();
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
      echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", starting to trade... \n";
@@ -98,7 +98,7 @@ else
       echo "---=== VERDICT ===---\n";
   echo "I have decided to play with ".$coinpool[$x]."\n";
     $api_url_constr2 = "https://www.cryptopia.co.nz/api/GetMarketOrders/".$coinpool[$x]."_".$coin."/10";
-    echo $api_url_constr2."\n";
+  //  echo $api_url_constr2."\n";
     $result2 = file_get_contents($api_url_constr2);
     $data2=json_decode($result2,true);
     if ($data2['Success'] == '1') {
@@ -116,7 +116,10 @@ else
      sleep(2);
      $cbal = $ct->getCurrencyBalance( $coinpool[$x] );
      $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
-     echo "Sold ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." \n\n";
+     echo "Placing sell order for the ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." ".$coin."\n\n";
+     $sellorders[$x]['pair'] =  $coinpool[$x].$coin;
+     $sellorders[$x]['amount'] =  $cbal;
+     $sellorders[$x]['sellprice'] =  $pricetosell;
    }
    else {
      echo "the first sell order is less than the minimum threshold setting (".$data2['Data']['Sell'][0]['Volume']." vs ".$coinbet.").
@@ -153,6 +156,8 @@ else
  foreach ($coinpool as $key => $value) {
  }
    }
+
+
  } catch(Exception $e) {
     echo '' . $e->getMessage() . PHP_EOL;
  }
