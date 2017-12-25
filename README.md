@@ -5,7 +5,7 @@ A strategy bot that plays on cryptopia all pairs for a coin in one go.
 Strategy has been tested with dodge and does make profit, but slowly.
 
 Requirements :
-1. A php server. This could be a webserver ot just on windows a portable php enviroment or even php for windows. http://windows.php.net/ All this needs is a way to run "php index-cli.php strategy1" from the command line in any platform or index.php?strategy=strategy1 from a web-browser.
+1. A php server. This could be a webserver ot just on windows a portable php enviroment or even php for windows. http://windows.php.net/ All it needs, is a way to run "php index-cli.php strategy1" from the command line in any platform or index.php?strategy=strategy1 from a web-browser.
 2. This repo. You can just do a "git pull https://github.com/upggr/ielko-microtrader.git" on any folder in any platform, if you have git installed. Or just download this repo in a folder. I suggest you use git, so you can then do a "git update" as this project is constantly updated with new features and fixes!
 
 Installation :
