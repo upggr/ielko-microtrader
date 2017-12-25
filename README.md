@@ -41,6 +41,11 @@ Orders as seen on cryptopia!
 ![Orders as seen on cryptopia](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/cryptopia.png)
 
 
+Youtube video of a full cycle!
+---
+[![Full cycle - strategy2](https://img.youtube.com/vi/-79Iq_Bf5FQ/0.jpg)](https://youtu.be/-79Iq_Bf5FQ)
+
+
 If you like this and you made money, tip me ! :
 
-DOGE : DLSy6fzUTbxqfFW8LSnU9HtfrQpa2MwtMb   (all funs are going back to the experiment pool to improve and create new strategies).
+DOGE : DLSy6fzUTbxqfFW8LSnU9HtfrQpa2MwtMb   (all funds are going back to the experiment pool to improve and create new strategies).
