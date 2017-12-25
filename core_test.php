@@ -113,7 +113,7 @@ else
      $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
      echo "Bought ".$coinpool[$x].$coin." pair (".$targetcoins." ".$coinpool[$x]." ) at ".$pricetobuy." \n\n";
 
-     sleep(2);
+    // sleep(2);
      $cbal = $ct->getCurrencyBalance( $coinpool[$x] );
      $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
      echo "Sold ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." \n\n";
