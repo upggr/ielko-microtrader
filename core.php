@@ -4,7 +4,7 @@ include 'bower_components/cryptopia-api-php/cryptopiaAPI.php';
 include 'config.php';
 try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
-   var $sellorders = array();
+   $sellorders = array();
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
      echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", starting to trade... \n";
