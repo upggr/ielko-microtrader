@@ -111,9 +111,12 @@ else
      $targetcoins = $coinbet/$pricetobuy;
      echo "will buy ".$coinbet." ".$coin." worth of ".$coinpool[$x]." at ".$pricetobuy." (TradePairId = ".$data2['Data']['Sell'][0]['TradePairId'].") (".$targetcoins." ".$coinpool[$x].")\n";
      $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
+     echo "Bought ".$coinpool[$x].$coin." pair (".$targetcoins." ".$coinpool[$x]." ) at ".$pricetobuy." \n\n";
+
      sleep(2);
-     $ct->sell($coinpool[$x].$coin, $targetcoins-($targetcoins*0.03), ($pricetosell));
-     echo "executed\n\n";
+     $cbal = $ct->getCurrencyBalance( $coinpool[$x] );
+     $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
+     echo "Sold ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." \n\n";
    }
    else {
      echo "the first sell order is less than the minimum threshold setting (".$data2['Data']['Sell'][0]['Volume']." vs ".$coinbet.").
