@@ -18,6 +18,7 @@ Suggestions :
 1. This bot will perform best if you set it to run every 10-20 minutes. so create a cron or other sort of automation to call it ever X minutes
 2. This project is constantly updated, so better have another cron to pull the new code in so you get all updates.
 3. Create your own strategy files based on the template, but please leave strategy1.php-strategy10.php intact, as I will keep updating them as I am working on this.
+4. I suggest you use the command line. If you dont, make sure your php enabled webserver can run php scripts that can last more than 5 minutes as checking all coins is a lengthy process.
 
 Running :
 1. If you want to run from the console use "php index-cli.php strategy1" but if you call from the browser just visit http://localhost.or.any.other.address/index.php?strategy=strategy1
