@@ -23,7 +23,7 @@ Suggestions :
 Running :
 1. If you want to run from the console use "php index-cli.php strategy1" but if you call from the browser just visit http://localhost.or.any.other.address/index.php?strategy=strategy1
 
-
+ 
 Strategy1 :
 On the sample strategy provided,
 We are targeting all DOGE pairs in cryptopia that have a price < 0.5 DOGE , have traded more than 20 times in the past 48 hours, had movement of more than 10% in the past 48 hours, were selling mostly in the past 48 hours. We are buying in increments of 20 DOGE and whenever we buy we also create a sell order at a price 5% more than the buy price.
