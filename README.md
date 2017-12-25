@@ -12,7 +12,7 @@ Installation :
 1. Clone this repo on your php server or php enviroment (locally or remotely).
 2. Rename config_sample.php to config.php and replace "XXX" with your api credentials that you can find in your cryptopia account
 3. Create a new strategy file, for example strategy_thebest.php, based on the strategy_sample.php file
-4. Note that there is a folder called bower_components that refers to another project. make sure when you download this is included, or go get it manually.
+4. Note that there is a folder called bower_components that refers to another project. make sure when you download, this folder is included, or go get it manually.
 
 Suggestions :
 1. This bot will perform best if you set it to run every 10-20 minutes. so create a cron or other sort of automation to call it ever X minutes
@@ -28,7 +28,7 @@ Strategy1 :
 On the sample strategy provided,
 We are targeting all DOGE pairs in cryptopia that have a price < 0.5 DOGE , have traded more than 20 times in the past 48 hours, had movement of more than 10% in the past 48 hours, were selling mostly in the past 48 hours. We are buying in increments of 20 DOGE and whenever we buy we also create a sell order at a price 5% more than the buy price.
 
-Note that running this strategy as per the variable $coincap even if you have 1.000.000 DOGE, in the end you will be left with 20 DOGE and all the others will be spread to the other coins.
+Note that running this strategy as per the variable $coincap even if you have 1.000.000 DOGE, in the end you will be left with 20 DOGE and all the others will be spread to the other coins until the sell orders are fullfilled.
 
 You need to adjust the variables.
 
