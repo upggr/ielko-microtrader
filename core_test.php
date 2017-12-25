@@ -4,7 +4,7 @@ include 'bower_components/cryptopia-api-php/cryptopiaAPI.php';
 include 'config.php';
 try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
-
+   var $sellorders = array();
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
      echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", starting to trade... \n";
@@ -117,6 +117,9 @@ else
      $cbal = $ct->getCurrencyBalance( $coinpool[$x] );
      $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
      echo "Sold ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." \n\n";
+     $sellorders[$x]['pair'] =  $coinpool[$x].$coin;
+     $sellorders[$x]['amount'] =  $cbal;
+     $sellorders[$x]['sellprice'] =  $pricetosell;
    }
    else {
      echo "the first sell order is less than the minimum threshold setting (".$data2['Data']['Sell'][0]['Volume']." vs ".$coinbet.").
@@ -153,6 +156,11 @@ else
  foreach ($coinpool as $key => $value) {
  }
    }
+
+   echo '<pre>'; print_r($sellorders); echo '</pre>';
+   echo "Sold ".$sellorders[$x]['pair']." -> ".$sellorders[$x]['amount']." at ".$sellorders[$x]['sellprice']." \n\n";
+
+
  } catch(Exception $e) {
     echo '' . $e->getMessage() . PHP_EOL;
  }
