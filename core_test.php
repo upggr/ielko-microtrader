@@ -116,7 +116,7 @@ else
      sleep(2);
      $cbal = $ct->getCurrencyBalance( $coinpool[$x] );
      $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
-     echo "Sold ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." \n\n";
+     echo "Placing sell order for the ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." \n\n";
      $sellorders[$x]['pair'] =  $coinpool[$x].$coin;
      $sellorders[$x]['amount'] =  $cbal;
      $sellorders[$x]['sellprice'] =  $pricetosell;
