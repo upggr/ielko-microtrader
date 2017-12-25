@@ -158,7 +158,7 @@ else
    }
 
    echo '<pre>'; print_r($sellorders); echo '</pre>';
-   echo "Sold ".$sellorders[$x]['pair']." -> ".$sellorders[$x]['amount']." at ".$sellorders[$x]['sellprice']." \n\n";
+   echo "Placed sell order ".$sellorders[$x]['pair']." -> ".$sellorders[$x]['amount']." at ".$sellorders[$x]['sellprice']." ".$coin."\n\n";
 
 
  } catch(Exception $e) {
