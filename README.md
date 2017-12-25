@@ -2,7 +2,7 @@ IELKO MICROTRADER
 
 A strategy bot that plays on cryptopia all pairs for a coin in one go.
 
-The idea is that based on some parameters, the bot will buy all coins that meet those parameters aiming at X% profit. It doesnt matter if the coins are going up or down or what the price is, if a coin is rising, will buy, make profit and go. On the next round same coin might be down again, but the bot will only buy it when is rising again.
+The idea is that based on some parameters, the bot will buy all coins that meet those parameters aiming at X% profit on the base currency. It doesn't matter if the coins are going up or down or what the price is, if a coin is rising, will buy, make profit and go. On the next round same coin might be down again, but the bot will only buy it when is rising again.
 
 Requirements :
 1. A php server. This could be a webserver ot just on windows a portable php enviroment or even php for windows. http://windows.php.net/ All it needs, is a way to run "php index-cli.php strategy1" from the command line in any platform or index.php?strategy=strategy1 from a web-browser.
