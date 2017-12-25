@@ -2,7 +2,7 @@ IELKO MICROTRADER
 
 A strategy bot that plays on cryptopia all pairs for a coin in one go.
 
-Strategy has been tested with dodge and does make profit, but slowly.
+The idea is that based on some parameters, the bot will buy all coins that meet those parameters aiming at X% profit. It doesnt matter if the coins are going up or down or what the price is, if a coin is rising, will buy, make profit and go. On the next round same coin might be down again, but the bot will only buy it when is rising again.
 
 Requirements :
 1. A php server. This could be a webserver ot just on windows a portable php enviroment or even php for windows. http://windows.php.net/ All it needs, is a way to run "php index-cli.php strategy1" from the command line in any platform or index.php?strategy=strategy1 from a web-browser.
@@ -23,7 +23,7 @@ Suggestions :
 Running :
 1. If you want to run from the console use "php index-cli.php strategy1" but if you call from the browser just visit http://localhost.or.any.other.address/index.php?strategy=strategy1
 
- 
+
 Strategy1 :
 On the sample strategy provided,
 We are targeting all DOGE pairs in cryptopia that have a price < 0.5 DOGE , have traded more than 20 times in the past 48 hours, had movement of more than 10% in the past 48 hours, were selling mostly in the past 48 hours. We are buying in increments of 20 DOGE and whenever we buy we also create a sell order at a price 5% more than the buy price.
