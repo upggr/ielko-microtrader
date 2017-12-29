@@ -162,8 +162,8 @@ else {
   $openordersarr = $ct->activeOrders();
   foreach ($openordersarr as $key => $value) {
     foreach ($value as $key2 => $value2) {
-echo $key2."\n";
-      if ($key2['type'] == 'Sell') {
+//echo $key2."\n";
+      if ($value['type'] == 'Sell') {
       echo $value2."\n";
                }
 }
