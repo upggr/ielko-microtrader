@@ -9,6 +9,28 @@ try {
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
      echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", starting to trade... \n";
+
+     $openordersarr = $ct->activeOrders();
+     $ct->updatePrices();
+     $marketsnapshot = $ct->getPrices();
+     print_r($marketsnapshot);
+     $basecoinbal_pred = $mycoinbalance;
+     $basecoinbal_real = $mycoinbalance;
+     foreach ($openordersarr as $key => $value) {
+       foreach ($value as $key2 => $value2) {
+         if ($value['type'] == 'Sell') {
+           if (strpos($value['symbol'], $coin) !== false) {
+             $thesymbol = str_replace($coin, "", $value['symbol']);
+             $thepred_price = $value['price'];
+             $theamount = $value['amount'];
+         $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
+         $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['last'];
+
+   }}}}
+     echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
+     echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
+
+     
      $ct->updatePrices();
      $tradepairs = $ct->getPrices();
      $coinpool = array();
