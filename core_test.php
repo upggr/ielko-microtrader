@@ -16,6 +16,7 @@ try {
      $basecoinbal_pred = $mycoinbalance;
      $basecoinbal_real = $mycoinbalance;
      foreach ($openordersarr as $key => $value) {
+        echo "$key \n";
        echo "loop 1 \n";
        foreach ($value as $key2 => $value2) {
           echo "loop 2 \n";
