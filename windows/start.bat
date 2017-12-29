@@ -1,1 +1,0 @@
-%~dp0php-win.exe %~dp0/../index-cli.php strategy1

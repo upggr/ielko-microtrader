@@ -2,6 +2,7 @@
 error_reporting(E_ALL & ~E_NOTICE);
 include 'bower_components/cryptopia-api-php/cryptopiaAPI.php';
 include 'config.php';
+
 try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
    $sellorders = array();
