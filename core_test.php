@@ -23,7 +23,7 @@ try {
              $theamount = $value['amount'];
          $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
          $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['last'];
-         echo $thesymbol.'/'.$coin."   ".print_r($marketsnapshot)."\n";
+         echo $thesymbol.'/'.$coin."   ".print_r($marketsnapshot[$thesymbol.'/'.$coin])."\n";
 
    }}}
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
