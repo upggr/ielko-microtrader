@@ -178,13 +178,12 @@ else
 }
    }
 else {
-  echo "not enough balance of the coin to play... \n";
   $openordersarr = $ct->activeOrders();
   $ct->updatePrices();
   $marketsnapshot = $ct->getPrices();
   $basecoinbal_pred = $mycoinbalance;
   $basecoinbal_real = $mycoinbalance;
-  //print_r($openordersarr);
+  print_r($openordersarr);
   foreach ($openordersarr as  $value) {
       if ($value['type'] == 'Sell') {
         if (strpos($value['symbol'], $coin) !== false) {
@@ -193,7 +192,7 @@ else {
           $theamount = $value['amount'];
       $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
       $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['last'];
-  //    echo $thesymbol.'/'.$coin."   ".$marketsnapshot[$thesymbol.'/'.$coin]['last']."\n";
+      echo $thesymbol.'/'.$coin."   ".$marketsnapshot[$thesymbol.'/'.$coin]['last']."\n";
 
 }}}
   echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
