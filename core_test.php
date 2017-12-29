@@ -161,9 +161,9 @@ else {
   echo "not enough balance of the coin to play... \n";
   $openordersarr = $ct->activeOrders();
   foreach ($openordersarr as $key => $value) {
-      if ($key['sell'] == 'Sell') {
+  //    if ($key['sell'] == 'Sell') {
       echo $value."\n";
-               }
+  //             }
 
   }
 }
