@@ -13,20 +13,20 @@ try {
      $openordersarr = $ct->activeOrders();
      $ct->updatePrices();
      $marketsnapshot = $ct->getPrices();
+  //   print_r($marketsnapshot);
      $basecoinbal_pred = $mycoinbalance;
      $basecoinbal_real = $mycoinbalance;
-     foreach ($openordersarr as $key => $value) {
-       foreach ($value as $key2 => $value2) {
+     foreach ($openordersarr as  $value) {
          if ($value['type'] == 'Sell') {
            if (strpos($value['symbol'], $coin) !== false) {
              $thesymbol = str_replace($coin, "", $value['symbol']);
              $thepred_price = $value['price'];
              $theamount = $value['amount'];
          $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
-         $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['last'];
-         echo $thesymbol.'/'.$coin."   ".$marketsnapshot[$thesymbol.'/'.$coin]['last']."\n";
+               $basecoinbal_real = $basecoinbal_real + ($theamount*$marketsnapshot[$thesymbol.'/'.$coin]['bid']);
+      //   echo $thesymbol.'/'.$coin."   ".print_r($marketsnapshot[$thesymbol.'/'.$coin])."\n";
 
-   }}}}
+   }}}
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
      echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
 
@@ -176,27 +176,25 @@ else
 }
 
 }
- foreach ($coinpool as $key => $value) {
- }
    }
 else {
   echo "not enough balance of the coin to play... \n";
   $openordersarr = $ct->activeOrders();
   $ct->updatePrices();
   $marketsnapshot = $ct->getPrices();
+//   print_r($marketsnapshot);
   $basecoinbal_pred = $mycoinbalance;
   $basecoinbal_real = $mycoinbalance;
-  foreach ($openordersarr as $key => $value) {
-    foreach ($value as $key2 => $value2) {
+  foreach ($openordersarr as  $value) {
       if ($value['type'] == 'Sell') {
         if (strpos($value['symbol'], $coin) !== false) {
           $thesymbol = str_replace($coin, "", $value['symbol']);
           $thepred_price = $value['price'];
           $theamount = $value['amount'];
       $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
-      $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['last'];
+      $basecoinbal_real = $basecoinbal_real + ($theamount*$marketsnapshot[$thesymbol.'/'.$coin]['bid']);
 
-}}}}
+}}}
   echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
   echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
 }
