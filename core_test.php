@@ -17,9 +17,9 @@ try {
      $basecoinbal_real = $mycoinbalance;
      print_r($openordersarr);
      foreach ($openordersarr as  $value) {
-       print_r($value);
+    //   print_r($value);
   //     echo "loop 1 \n";
-       foreach ($value as $key2 => $value2) {
+  //     foreach ($value as $key2 => $value2) {
     //             echo "$key2 \n";
   //        echo "loop 2 \n";
          if ($value['type'] == 'Sell') {
@@ -31,7 +31,7 @@ try {
          $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['last'];
          echo $thesymbol.'/'.$coin."   ".$marketsnapshot[$thesymbol.'/'.$coin]['last']."\n";
 
-   }}}}
+   }}}
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
      echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
 
