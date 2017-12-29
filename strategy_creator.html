@@ -80,9 +80,7 @@
       </div>
 
 
-      alert-success
-      <div class="alert alert-danger">
-        <strong>Success!</strong> Indicates a successful or positive action.
+      <div class="alert">
       </div>
 
 
@@ -108,8 +106,17 @@
       var targetcoinration = $("#targetcoinration").val();
       var lowvolume = $("#lowvolume").val();
       console.log(pad(coin, 8), pad(coincap, 8), hours, buyifabove, targetprofit, coinbet, targetcoinration, lowvolume);
-      var strategy = pad(coin, 8) + pad(coincap, 8) + pad(hours, 8) + pad(buyifabove, 8) + pad(targetprofit, 8) + pad(coinbet, 8) + pad(targetcoinration, 8) + pad(lowvolume, 8);
-      $(".alert").empty().append(strategy);
+      var strategy = pad(coin, 8) + pad(coincap, 8) + pad(hours, 8) + pad(buyifabove, 8) + pad(targetprofit, 8) + pad(coinbet, 8) + pad(targetcoinration, 8) + pad(lowvolume, 10);
+      if (strategy.length == 80) {
+        $('.alert').removeClass('alert-danger');
+        $(".alert").empty().append("here is your strategy id : " + strategy);
+        $('.alert').addClass('alert-success');
+      } else {
+        $('.alert').removeClass('alert-success');
+        $(".alert").empty().append("Something is wrong with your values, please recheck...");
+        $('.alert').addClass('alert-danger');
+      }
+
     });
 
     function pad(number, length) {
