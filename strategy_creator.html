@@ -99,8 +99,16 @@
 <script>
   $(document).ready(function() {
     $("form :input").change(function() {
-      console.log('dddd');
-      $(this).closest('form').data('changed', true);
+      var coin = $("#coin").val();
+      var coincap = $("#coincap").val();
+      var hours = $("#hours").val();
+      var buyifabove = $("#buyifabove").val();
+      var targetprofit = $("#targetprofit").val();
+      var coinbet = $("#coinbet").val();
+      var targetcoinration = $("#targetcoinration").val();
+      var lowvolume = $("#lowvolume").val();
+      console.log(coin, coincap, hours, buyifabove, targetprofit, coinbet, targetcoinration, lowvolume);
+      $(.alert).empty().append(coin);
     });
   });
 </script>
