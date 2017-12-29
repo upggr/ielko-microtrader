@@ -157,7 +157,9 @@ else
  foreach ($coinpool as $key => $value) {
  }
    }
-
+else {
+  echo 'not enough balance of the coin to play...';
+}
 
  } catch(Exception $e) {
     echo '' . $e->getMessage() . PHP_EOL;
