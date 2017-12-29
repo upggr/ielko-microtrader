@@ -167,7 +167,7 @@ else {
       if ($value['type'] == 'Sell') {
 
         if (strpos($value['symbol'], $coin) !== false) {
-      echo $value2."\n";
+      echo $key2." ".$value2."\n";
 }
 
                }
