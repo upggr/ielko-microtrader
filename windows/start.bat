@@ -1,0 +1,1 @@
+./index-cli.php strategy1
