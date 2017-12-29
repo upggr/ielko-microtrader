@@ -158,7 +158,7 @@ else
  }
    }
 else {
-  echo 'not enough balance of the coin to play...';
+  echo "not enough balance of the coin to play... \n";
 }
 
  } catch(Exception $e) {
