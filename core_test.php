@@ -162,7 +162,7 @@ else {
   $openordersarr = $ct->activeOrders();
   foreach ($openordersarr as $key => $value) {
   //    if ($key['sell'] == 'Sell') {
-      echo $value."\n";
+      echo $key."\n";
   //             }
 
   }
