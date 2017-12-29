@@ -160,6 +160,7 @@ else
 else {
   echo "not enough balance of the coin to play... \n";
   $openordersarr = $ct->activeOrders();
+  $ct->updatePrices();
   $marketsnapshot = $ct->getPrices();
   print_r($marketsnapshot);
   $basecoinbal_pred = $mycoinbalance;
