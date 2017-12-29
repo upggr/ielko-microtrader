@@ -13,7 +13,7 @@ try {
      $openordersarr = $ct->activeOrders();
      $ct->updatePrices();
      $marketsnapshot = $ct->getPrices();
-     print_r($marketsnapshot);
+  //   print_r($marketsnapshot);
      $basecoinbal_pred = $mycoinbalance;
      $basecoinbal_real = $mycoinbalance;
      foreach ($openordersarr as  $value) {
@@ -23,8 +23,8 @@ try {
              $thepred_price = $value['price'];
              $theamount = $value['amount'];
          $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
-         $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['last'];
-         echo $thesymbol.'/'.$coin."   ".print_r($marketsnapshot[$thesymbol.'/'.$coin])."\n";
+         $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['bid'];
+      //   echo $thesymbol.'/'.$coin."   ".print_r($marketsnapshot[$thesymbol.'/'.$coin])."\n";
 
    }}}
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
@@ -182,19 +182,17 @@ else {
   $openordersarr = $ct->activeOrders();
   $ct->updatePrices();
   $marketsnapshot = $ct->getPrices();
+//   print_r($marketsnapshot);
   $basecoinbal_pred = $mycoinbalance;
   $basecoinbal_real = $mycoinbalance;
-  print_r($openordersarr);
   foreach ($openordersarr as  $value) {
-
       if ($value['type'] == 'Sell') {
         if (strpos($value['symbol'], $coin) !== false) {
           $thesymbol = str_replace($coin, "", $value['symbol']);
           $thepred_price = $value['price'];
           $theamount = $value['amount'];
       $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
-      $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['last'];
-      echo $thesymbol.'/'.$coin."   ".$marketsnapshot[$thesymbol.'/'.$coin]['last']."\n";
+      $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['bid'];
 
 }}}
   echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
