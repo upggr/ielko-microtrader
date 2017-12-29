@@ -105,8 +105,8 @@
       var coinbet = $("#coinbet").val();
       var targetcoinration = $("#targetcoinration").val();
       var lowvolume = $("#lowvolume").val();
-      var strategy = pad(coin, 10) + pad(coincap, 10) + pad(hours, 10) + pad(buyifabove, 10) + pad(targetprofit, 10) + pad(coinbet, 10) + pad(targetcoinration, 10) + pad(lowvolume, 10);
-      if (strategy.length == 80) {
+      var strategy = pad(coin, 10) + "_" + pad(coincap, 10) + "_" + pad(hours, 10) + "_" + pad(buyifabove, 10) + "_" + pad(targetprofit, 10) + "_" + pad(coinbet, 10) + "_" + pad(targetcoinration, 10) + "_" + pad(lowvolume, 10);
+      if (strategy.length == 87) {
         console.log(strategy.length);
         $('.alert').removeClass('alert-danger');
         $(".alert").empty().append("here is your strategy id : " + strategy);
