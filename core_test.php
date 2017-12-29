@@ -15,9 +15,7 @@ try {
      $marketsnapshot = $ct->getPrices();
      $basecoinbal_pred = $mycoinbalance;
      $basecoinbal_real = $mycoinbalance;
-     print_r($openordersarr);
      foreach ($openordersarr as  $value) {
-
          if ($value['type'] == 'Sell') {
            if (strpos($value['symbol'], $coin) !== false) {
              $thesymbol = str_replace($coin, "", $value['symbol']);
@@ -25,7 +23,7 @@ try {
              $theamount = $value['amount'];
          $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
          $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['last'];
-         echo $thesymbol.'/'.$coin."   ".$marketsnapshot[$thesymbol.'/'.$coin]['last']."\n";
+         echo $thesymbol.'/'.$coin."   ".print_r($marketsnapshot)."\n";
 
    }}}
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
