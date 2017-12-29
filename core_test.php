@@ -13,7 +13,6 @@ try {
      $openordersarr = $ct->activeOrders();
      $ct->updatePrices();
      $marketsnapshot = $ct->getPrices();
-     print_r($marketsnapshot);
      $basecoinbal_pred = $mycoinbalance;
      $basecoinbal_real = $mycoinbalance;
      foreach ($openordersarr as $key => $value) {
@@ -30,7 +29,7 @@ try {
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
      echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
 
-     
+
      $ct->updatePrices();
      $tradepairs = $ct->getPrices();
      $coinpool = array();
@@ -184,7 +183,6 @@ else {
   $openordersarr = $ct->activeOrders();
   $ct->updatePrices();
   $marketsnapshot = $ct->getPrices();
-  print_r($marketsnapshot);
   $basecoinbal_pred = $mycoinbalance;
   $basecoinbal_real = $mycoinbalance;
   foreach ($openordersarr as $key => $value) {
