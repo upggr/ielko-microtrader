@@ -94,7 +94,7 @@
 </body>
 <script>
   $(document).ready(function() {
-    $(".form-control").change(function() {
+    $("form :input").change(function() {
       $(this).closest('form').data('changed', true);
     });
   });
