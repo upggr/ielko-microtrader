@@ -1,1 +1,1 @@
-./index-cli.php strategy1
+%~dp0php.exe %~dp0/../index-cli.php strategy1
