@@ -159,6 +159,7 @@ else
    }
 else {
   echo "not enough balance of the coin to play... \n";
+  print_r($ct->activeOrders());
 }
 
  } catch(Exception $e) {
