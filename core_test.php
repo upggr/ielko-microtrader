@@ -163,7 +163,7 @@ else {
   foreach ($openordersarr as $key => $value) {
     foreach ($key as $key2 => $value2) {
   //    if ($key['sell'] == 'Sell') {
-      echo $key."\n";
+      echo $key2."\n";
   //             }
 }
   }
