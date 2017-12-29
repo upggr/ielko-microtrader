@@ -107,12 +107,10 @@
       var lowvolume = $("#lowvolume").val();
       var strategy = pad(coin, 10) + "_" + pad(coincap, 10) + "_" + pad(hours, 10) + "_" + pad(buyifabove, 10) + "_" + pad(targetprofit, 10) + "_" + pad(coinbet, 10) + "_" + pad(targetcoinration, 10) + "_" + pad(lowvolume, 10);
       if (strategy.length == 87) {
-        console.log(strategy.length);
         $('.alert').removeClass('alert-danger');
         $(".alert").empty().append("here is your strategy id : " + strategy);
         $('.alert').addClass('alert-success');
       } else {
-        console.log(strategy.length);
         $('.alert').removeClass('alert-success');
         $(".alert").empty().append("Something is wrong with your values, please recheck...");
         $('.alert').addClass('alert-danger');
