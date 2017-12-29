@@ -93,8 +93,10 @@
 
 </body>
 <script>
-  $(".form-control").change(function() {
-    $(this).closest('form').data('changed', true);
+  $(document).ready(function() {
+    $(".form-control").change(function() {
+      $(this).closest('form').data('changed', true);
+    });
   });
 </script>
 
