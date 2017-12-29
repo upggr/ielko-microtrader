@@ -19,65 +19,67 @@
 
   <div class="container-fluid">
 
+    <form id="theform">
 
-    <div class="form-group">
-      <label for="exampleSelect1">Coin</label>
-      <select class="form-control" id="coin">
+
+      <div class="form-group">
+        <label for="exampleSelect1">Coin</label>
+        <select class="form-control" id="coin">
           <option>DOGE</option>
           <option>LTC</option>
           <option>NZDT</option>
           <option>USDT</option>
           <option>BTC</option>
         </select>
-      <small id="coin" class="form-text text-muted">what will be the base coin to play to. Effectively this bounds the bot to the DOGE market in cryptopia and only coins in this market.</small>
+        <small id="coin" class="form-text text-muted">what will be the base coin to play to. Effectively this bounds the bot to the DOGE market in cryptopia and only coins in this market.</small>
 
-    </div>
-
-
-    <div class="form-group">
-      <label for="coincap">Coin Cap</label>
-      <input type="number" min="0" class="form-control" id="coincap" aria-describedby="coincap" placeholder="20">
-      <small id="coincap" class="form-text text-muted">how many coins to keep from the base coin (not to play them)</small>
-    </div>
+      </div>
 
 
-    <div class="form-group">
-      <label for="hours">Market data history duration (in hours)</label>
-      <input type="number" min="1" class="form-control" id="hours" aria-describedby="hours" placeholder="24">
-      <small id="hours" class="form-text text-muted">how many hours of market data to analyze </small>
-    </div>
-
-    <div class="form-group">
-      <label for="buyifabove">Buy % threshold</label>
-      <input type="number" min="0" max="100" class="form-control" id="buyifabove" aria-describedby="buyifabove" placeholder="10">
-      <small id="buyifabove" class="form-text text-muted">when a coin increased more than this threshold in the last Market data history duration , the bot will play with it </small>
-    </div>
-
-    <div class="form-group">
-      <label for="targetprofit">Target profit (expressed in decimal % - allowed 0.00 to 1)</label>
-      <input type="number" min="0" max="1" class="form-control" id="targetprofit" aria-describedby="targetprofit" placeholder="0.05">
-      <small id="targetprofit" class="form-text text-muted">target proft to make (sell order) </small>
-    </div>
-
-    <div class="form-group">
-      <label for="coinbet">Base coin bet increments</label>
-      <input type="number" min="0" class="form-control" id="coinbet" aria-describedby="coinbet" placeholder="20">
-      <small id="coinbet" class="form-text text-muted">increments of $coin to play </small>
-    </div>
-
-    <div class="form-group">
-      <label for="targetcoinration">Target coins exchange amount</label>
-      <input type="number" min="0" class="form-control" id="targetcoinration" aria-describedby="targetcoinration" placeholder="0.5">
-      <small id="targetcoinration" class="form-text text-muted">only play on coins that their price is less than this compared to the base coin. (for example if target coin price is 0.3 of the base coin, and you enter here 0.4, it will play on it.)</small>
-    </div>
-
-    <div class="form-group">
-      <label for="lowvolume">Target coins exchange amount</label>
-      <input type="number" min="0" class="form-control" id="lowvolume" aria-describedby="lowvolume" placeholder="20">
-      <small id="lowvolume" class="form-text text-muted">only trade the coin if there has been more than this amount of transactions in the past Market data history duration </small>
-    </div>
+      <div class="form-group">
+        <label for="coincap">Coin Cap</label>
+        <input type="number" min="0" class="form-control" id="coincap" aria-describedby="coincap" placeholder="20">
+        <small id="coincap" class="form-text text-muted">how many coins to keep from the base coin (not to play them)</small>
+      </div>
 
 
+      <div class="form-group">
+        <label for="hours">Market data history duration (in hours)</label>
+        <input type="number" min="1" class="form-control" id="hours" aria-describedby="hours" placeholder="24">
+        <small id="hours" class="form-text text-muted">how many hours of market data to analyze </small>
+      </div>
+
+      <div class="form-group">
+        <label for="buyifabove">Buy % threshold</label>
+        <input type="number" min="0" max="100" class="form-control" id="buyifabove" aria-describedby="buyifabove" placeholder="10">
+        <small id="buyifabove" class="form-text text-muted">when a coin increased more than this threshold in the last Market data history duration , the bot will play with it </small>
+      </div>
+
+      <div class="form-group">
+        <label for="targetprofit">Target profit (expressed in decimal % - allowed 0.00 to 1)</label>
+        <input type="number" min="0" max="1" class="form-control" id="targetprofit" aria-describedby="targetprofit" placeholder="0.05">
+        <small id="targetprofit" class="form-text text-muted">target proft to make (sell order) </small>
+      </div>
+
+      <div class="form-group">
+        <label for="coinbet">Base coin bet increments</label>
+        <input type="number" min="0" class="form-control" id="coinbet" aria-describedby="coinbet" placeholder="20">
+        <small id="coinbet" class="form-text text-muted">increments of $coin to play </small>
+      </div>
+
+      <div class="form-group">
+        <label for="targetcoinration">Target coins exchange amount</label>
+        <input type="number" min="0" class="form-control" id="targetcoinration" aria-describedby="targetcoinration" placeholder="0.5">
+        <small id="targetcoinration" class="form-text text-muted">only play on coins that their price is less than this compared to the base coin. (for example if target coin price is 0.3 of the base coin, and you enter here 0.4, it will play on it.)</small>
+      </div>
+
+      <div class="form-group">
+        <label for="lowvolume">Target coins exchange amount</label>
+        <input type="number" min="0" class="form-control" id="lowvolume" aria-describedby="lowvolume" placeholder="20">
+        <small id="lowvolume" class="form-text text-muted">only trade the coin if there has been more than this amount of transactions in the past Market data history duration </small>
+      </div>
+
+    </form>
     alert-success
     <div class="alert alert-warning">
       <strong>Success!</strong> Indicates a successful or positive action.
