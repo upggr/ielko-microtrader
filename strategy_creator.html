@@ -78,8 +78,8 @@
     </div>
 
 
-
-    <div class="alert alert-success">
+    alert-success
+    <div class="alert alert-warning">
       <strong>Success!</strong> Indicates a successful or positive action.
     </div>
 
@@ -92,7 +92,11 @@
 
 
 </body>
-
+<script>
+  $(".form-control").change(function() {
+    $(this).closest('form').data('changed', true);
+  });
+</script>
 
 
 </html>
