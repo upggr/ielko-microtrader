@@ -160,19 +160,22 @@ else
 else {
   echo "not enough balance of the coin to play... \n";
   $openordersarr = $ct->activeOrders();
-  $basecoinbal = '';
+  $basecoinbal = $mycoinbalance;
   foreach ($openordersarr as $key => $value) {
     foreach ($value as $key2 => $value2) {
 //echo $key2."\n";
       if ($value['type'] == 'Sell') {
 
         if (strpos($value['symbol'], $coin) !== false) {
-      echo $key2." ".$value2."\n";
+  //    echo $key2." ".$value2."\n";
+      $basecoinbal = $basecoinbal + ($value['price']*$value['amount']);
 }
 
                }
 }
   }
+
+  echo "expecting ".$basecoinbal. " ".$coin." if all goes good.. \n";
 }
 
  } catch(Exception $e) {
