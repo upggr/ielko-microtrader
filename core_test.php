@@ -174,7 +174,7 @@ else {
       $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
 
 }}}}
-  echo "expecting ".$basecoinbal. " ".$coin." if all goes good.. \n";
+  echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
 }
 
  } catch(Exception $e) {
