@@ -169,7 +169,7 @@ else {
     foreach ($value as $key2 => $value2) {
       if ($value['type'] == 'Sell') {
         if (strpos($value['symbol'], $coin) !== false) {
-          $thesymbol = str_replace($coin, "", $value['symbol'])
+          $thesymbol = str_replace($coin, "", $value['symbol']);
           $thepred_price = $value['price'];
           $theamount = $value['amount'];
       $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
