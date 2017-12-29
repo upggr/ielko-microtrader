@@ -164,7 +164,7 @@ else {
     foreach ($value as $key2 => $value2) {
       if ($key2['type'] == 'Sell') {
       echo $value2."\n";
-  //             }
+               }
 }
   }
 }
