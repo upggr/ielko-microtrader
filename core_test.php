@@ -169,12 +169,15 @@ else {
     foreach ($value as $key2 => $value2) {
       if ($value['type'] == 'Sell') {
         if (strpos($value['symbol'], $coin) !== false) {
+          $thesymbol = str_replace($coin, "", $value['symbol'])
           $thepred_price = $value['price'];
           $theamount = $value['amount'];
       $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
+      $basecoinbal_real = $basecoinbal_real + $marketsnapshot[$thesymbol.'/'.$coin]['last'];
 
 }}}}
   echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
+  echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
 }
 
  } catch(Exception $e) {
