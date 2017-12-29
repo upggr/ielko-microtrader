@@ -99,6 +99,7 @@
 <script>
   $(document).ready(function() {
     $("form :input").change(function() {
+      console.log('dddd');
       $(this).closest('form').data('changed', true);
     });
   });
