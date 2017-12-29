@@ -13,6 +13,7 @@ try {
      $openordersarr = $ct->activeOrders();
      $ct->updatePrices();
      $marketsnapshot = $ct->getPrices();
+     print_r($marketsnapshot);
      $basecoinbal_pred = $mycoinbalance;
      $basecoinbal_real = $mycoinbalance;
      foreach ($openordersarr as  $value) {
