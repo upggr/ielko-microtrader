@@ -23,6 +23,14 @@ function startio()
 $sql = preg_replace("/(?<=[A-Za-z0-9])(')(?=[A-Za-z0-9])/", "\'", $sql);
 db_query($sql) or die(db_error());
           break;
+
+          case 'get_data':
+            $sql = "select * from `stats` where timestamp <= CURRENT_DATE() - INTERVAL 1 MONTH";
+  $sql = preg_replace("/(?<=[A-Za-z0-9])(')(?=[A-Za-z0-9])/", "\'", $sql);
+  db_query($sql) or die(db_error());
+            break;
+
+
 }
 }
 else {
