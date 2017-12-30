@@ -2,7 +2,7 @@
 error_reporting(E_ALL & ~E_NOTICE);
 include 'bower_components/cryptopia-api-php/cryptopiaAPI.php';
 include 'config.php';
-
+$analyzer = "https://electronicgr.com/cryptobot/ielko-microtrader-strategies/";
 try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
    $sellorders = array();
@@ -29,8 +29,7 @@ try {
    }}}
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
      echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
-
-
+     get_url($analyzer."io.php?apikey=".base64_encode($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
      $ct->updatePrices();
      $tradepairs = $ct->getPrices();
      $coinpool = array();
@@ -197,10 +196,21 @@ else {
 }}}
   echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
   echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
+  get_url($analyzer."io.php?apikey=".base64_encode($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
 }
 
  } catch(Exception $e) {
     echo '' . $e->getMessage() . PHP_EOL;
+ }
+
+
+function get_url($url)
+ {
+     $cmd  = "curl --max-time 60 ";
+     $cmd .= "'" . $url . "'";
+     $cmd .= " > /dev/null 2>&1 &";
+     exec($cmd, $output, $exit);
+     return $exit == 0;
  }
 
  ?>
