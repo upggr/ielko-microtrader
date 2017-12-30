@@ -45,10 +45,11 @@
 
         var options = {
           width: 1024,
-          height: 512
+          height: 512,
+          seriesBarDistance: 15
         };
 
-        new Chartist.Line('.ct-chart', data, options);
+        new Chartist.Bar('.ct-chart', data, options);
       },
       error: function(request, error) {
         console.log(error);
