@@ -71,4 +71,4 @@ The code that does that is this one :
 
 get_url($analyzer."io.php?apikey=".base64_encode($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
 
-in the core.php file. I also transmit and encoded version of your api keys, just as uniqness, but not the secret.
+in the core.php file. I also transmit an encoded version of your api key, just as uniqness, but not the secret. If you dont like this, just clone this repo , remove the line and run it without. I will soon add an option in the strategy url to disable automatically, but as you can see is perfectly safe! 
