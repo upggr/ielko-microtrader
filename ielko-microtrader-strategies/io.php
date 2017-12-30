@@ -14,8 +14,14 @@ function startio()
         switch ($_GET['type']) {
           case 'test':
           echo 'test';
+          break
 
-      break;
+          case 'submit_data':
+          
+          $sql = "INSERT INTO `minerva_error_log` (`msg`,`url`,`ln`) VALUES ('$msg','$url','$ln')";
+$sql = preg_replace("/(?<=[A-Za-z0-9])(')(?=[A-Za-z0-9])/", "\'", $sql);
+db_query($sql) or die(db_error());
+          break;
 }
 }
 else {
