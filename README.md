@@ -11,8 +11,6 @@ Requirements :
 Installation :
 1. Clone this repo on your php server or php enviroment (locally or remotely).
 2. Rename config_sample.php to config.php and replace "XXX" with your api credentials that you can find in your cryptopia account
-3. Create a new strategy file, for example strategy_thebest.php, based on the strategy_sample.php file
-4. Note that there is a folder called bower_components that refers to another project. make sure when you download, this folder is included, or go get it manually.
 
 Suggestions :
 1. This bot will perform best if you set it to run every 10-20 minutes. so create a cron or other sort of automation to call it ever X minutes
@@ -21,7 +19,8 @@ Suggestions :
 4. I suggest you use the command line. If you dont, make sure your php enabled webserver can run php scripts that can last more than 5 minutes as checking all coins is a lengthy process.
 
 Running :
-1. If you want to run from the console use "php index-cli.php strategy1" but if you call from the browser just visit http://localhost.or.any.other.address/index.php?strategy=strategy1
+1. 3. Use provided strategy_creator.html to create a strategy, or use 000000DOGE_0000000020_0000000024_0000000010_0000000.05_0000000020_00000000.5_0000000020
+1. If you want to run from the console use "php index-cli.php 000000DOGE_0000000020_0000000024_0000000010_0000000.05_0000000020_00000000.5_0000000020" but if you call from the browser just visit http://localhost.or.any.other.address/index.php?strategy=000000DOGE_0000000020_0000000024_0000000010_0000000.05_0000000020_00000000.5_0000000020
 
 
 Strategy1 :
