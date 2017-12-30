@@ -54,10 +54,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 $aaData = array_values($aaData);
-$response = array('data' => $aaData);
-$merger = array_merge($response);
 header('Content-Type: application/json');
-echo json_encode($merger);
+echo json_encode($aaData);
 //echo '<pre>';print_r($merger);echo '</pre>';
 db_close();
 
