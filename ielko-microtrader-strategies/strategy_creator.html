@@ -108,7 +108,7 @@
       var strategy = pad(coin, 10) + "_" + pad(coincap, 10) + "_" + pad(hours, 10) + "_" + pad(buyifabove, 10) + "_" + pad(targetprofit, 10) + "_" + pad(coinbet, 10) + "_" + pad(targetcoinration, 10) + "_" + pad(lowvolume, 10);
       if (strategy.length == 87) {
         $('.alert').removeClass('alert-danger');
-        $(".alert").empty().append("here is your strategy id : " + strategy + "<br /> You can now go and run php index-cli.php " + strategy + );
+        $(".alert").empty().append("here is your strategy id : " + strategy + "<br /> You can now go and run php index-cli.php " + strategy);
         $('.alert').addClass('alert-success');
       } else {
         $('.alert').removeClass('alert-success');
