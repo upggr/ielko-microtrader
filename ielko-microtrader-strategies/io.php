@@ -45,10 +45,12 @@ while ($row = mysqli_fetch_assoc($result)) {
       $aaData[$myIndex][$thestrategy]['real_amount'] = $therealamount;
       $aaData[$myIndex][$thestrategy]['good_amount'] = $thegoodamount;
       $aaData[$myIndex][$thestrategy]['time'] = $thetime;
+
+  }
+  if (!isset($labelsarr[$myIndex])) {
       $labelsarr[$myIndex][$thestrategy][$theapikey]['time'];
 
   }
-
 
 }
 
