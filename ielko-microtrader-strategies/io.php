@@ -32,7 +32,8 @@ if ($result === false) {return false;}
 $emparray = array();
 $aaData = array();
 $labelsarr = array();
-$seriesarr = array();
+$seriesarr_r = array();
+$seriesarr_g = array();
 while ($row = mysqli_fetch_assoc($result)) {
   $theapikey = $row['apikey'];
   $theid = $row['id'];
@@ -48,15 +49,17 @@ while ($row = mysqli_fetch_assoc($result)) {
       $aaData[$myIndex][$thestrategy]['time'] = $thetime;
   //    $labelsarr[$myIndex][$thestrategy][$theapikey]['time']= $thetime;
       array_push($labelsarr, $thetime);
-      $seriesarr[$thestrategy][$theapikey]['real']= $therealamount;
-      $seriesarr[$thestrategy][$theapikey]['good']= $thegoodamount;
+      array_push($seriesarr_r, $therealamount);
+      array_push($seriesarr_g, $thegoodamount);
+
   }
 
 
 }
 
 $labels = array('labels' => $labelsarr);
-$series = array('series' => $seriesarr);
+$series_r = array('series_r' => $seriesarr_r);
+$series_g = array('series_g' => $seriesarr_g);
 $merger = array_merge($labels, $series);
 $aaData = array_values($aaData);
 
