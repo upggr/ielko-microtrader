@@ -48,8 +48,8 @@ while ($row = mysqli_fetch_assoc($result)) {
       $aaData[$myIndex][$thestrategy]['time'] = $thetime;
   //    $labelsarr[$myIndex][$thestrategy][$theapikey]['time']= $thetime;
       array_push($labelsarr, $thetime);
-      array_push($seriesarr[$thestrategy][$theapikey]['real'], $therealamount);
-      array_push($seriesarr[$thestrategy][$theapikey]['good'], $thegoodamount);
+      array_push($seriesarr['real'], $therealamount);
+      array_push($seriesarr['good'], $thegoodamount);
   }
 
 
