@@ -25,7 +25,7 @@ db_query($sql) or die(db_error());
           break;
 
           case 'get_data':
-$sql = "select * from `stats` where apikey = 'ZWZjNzE5ZDY5MzAxNDBmMTk0NGJjYzNj' and strategy ='000000NZDT_0000000010_0000000048_0000000010_0000000.20_0000000030_0000000100_0000000010' and timestamp BETWEEN SUBDATE(CURDATE(), INTERVAL 1 MONTH) AND NOW();";
+$sql = "select * from `stats` where apikey = 'ZWZjNzE5ZDY5MzAxNDBmMTk0NGJjYzNj' and strategy ='000000DOGE_0000000010_0000000048_0000000010_0000000.20_0000000030_0000000100_0000000010' and timestamp BETWEEN SUBDATE(CURDATE(), INTERVAL 1 MONTH) AND NOW();";
 $sql = preg_replace("/(?<=[A-Za-z0-9])(')(?=[A-Za-z0-9])/", "\'", $sql);
 $result = db_query($sql);
 if ($result === false) {return false;}
