@@ -19,7 +19,7 @@ Suggestions :
 4. I suggest you use the command line. If you dont, make sure your php enabled webserver can run php scripts that can last more than 5 minutes as checking all coins is a lengthy process.
 
 Running :
-1. 3. Use provided strategy_creator.html to create a strategy, or use 000000DOGE_0000000020_0000000024_0000000010_0000000.05_0000000020_00000000.5_0000000020
+1. 3. Use provided strategy_creator.html to create a strategy, or use 000000DOGE_0000000020_0000000024_0000000010_0000000.05_0000000020_00000000.5_0000000020 or go online make your own : ![Variables/Strategy](https://electronicgr.com/cryptobot/ielko-microtrader-strategies/strategy_creator.html) 
 1. If you want to run from the console use "php index-cli.php 000000DOGE_0000000020_0000000024_0000000010_0000000.05_0000000020_00000000.5_0000000020" but if you call from the browser just visit http://localhost.or.any.other.address/index.php?strategy=000000DOGE_0000000020_0000000024_0000000010_0000000.05_0000000020_00000000.5_0000000020
 
 
@@ -71,4 +71,4 @@ The code that does that is this one :
 
 get_url($analyzer."io.php?apikey=".base64_encode($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
 
-in the core.php file. I also transmit an encoded version of your api key, just as uniqness, but not the secret. If you dont like this, just clone this repo , remove the line and run it without. I will soon add an option in the strategy url to disable automatically, but as you can see is perfectly safe! 
+in the core.php file. I also transmit an encoded version of your api key, just as uniqness, but not the secret. If you dont like this, just clone this repo , remove the line and run it without. I will soon add an option in the strategy url to disable automatically, but as you can see is perfectly safe!
