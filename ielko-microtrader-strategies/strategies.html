@@ -30,6 +30,18 @@
 </body>
 <script>
   $(document).ready(function() {
+    $.ajax({
+      url: "https://electronicgr.com/cryptobot/ielko-microtrader-strategies/io.php?type=get_data",
+      dataType: "json",
+      async: true,
+      success: function(result) {
+        console.log(result.labels);
+      },
+      error: function(request, error) {
+        console.log(error);
+      }
+    });
+
 
     var data = {
       labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
