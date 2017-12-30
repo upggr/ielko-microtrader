@@ -46,7 +46,7 @@ while ($row = mysqli_fetch_assoc($result)) {
       $aaData[$myIndex][$thestrategy]['apikey'] = $theapikey;
       $aaData[$myIndex][$thestrategy]['real_amount'] = $therealamount;
       $aaData[$myIndex][$thestrategy]['good_amount'] = $thegoodamount;
-      $aaData[$myIndex][$thestrategy]['theadtimestampdress'] = $thetime;
+      $aaData[$myIndex][$thestrategy]['time'] = $thetime;
 
   }
 
