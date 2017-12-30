@@ -40,7 +40,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   $thegoodamount = $row['good_amount'];
   $thetime = $row['timestamp'];
 
-$aaData = $row;
+$aaData[] = $row;
 
 
 }
