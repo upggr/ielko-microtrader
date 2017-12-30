@@ -14,9 +14,9 @@ function startio()
         switch ($_GET['type']) {
           case 'test':
           echo 'test';
-          break
+          break;
 
-          case 'submit_data':
+      case 'submit_data':
         $apikey =  $_GET['apikey'];
         $strategy =  $_GET['strategy'];
         $real_amount =  $_GET['real_amount'];
