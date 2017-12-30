@@ -39,16 +39,8 @@ while ($row = mysqli_fetch_assoc($result)) {
   $therealamount = $row['real_amount'];
   $thegoodamount = $row['good_amount'];
   $thetime = $row['timestamp'];
-  $myIndex = $theid.':'.$theapikey;
 
-//  if ($previousprice> 0) {
-  if (!isset($aaData[$myIndex])) {
-      $aaData[$myIndex][$thestrategy]['apikey'] = $theapikey;
-      $aaData[$myIndex][$thestrategy]['real_amount'] = $therealamount;
-      $aaData[$myIndex][$thestrategy]['good_amount'] = $thegoodamount;
-      $aaData[$myIndex][$thestrategy]['time'] = $thetime;
-
-  }
+$aaData = $row;
 
 
 }
