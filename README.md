@@ -67,4 +67,8 @@ DOGE : DLSy6fzUTbxqfFW8LSnU9HtfrQpa2MwtMb   (all funds are going back to the exp
 
 
 ***Note that, everytime you run this, I have temporarily enabled a feature where you send me some anonymous data : strategy ID, estimated profit and real profit. This is for statistical reasons, so I can create another program where strategies are rated automatically and you can pick other people's strategies, etc. Nothing else is collected, just amounts, and strategy.
+The code that does that is this one :
 
+get_url($analyzer."io.php?apikey=".base64_encode($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
+
+in the core.php file. I also transmit and encoded version of your api keys, just as uniqness, but not the secret.
