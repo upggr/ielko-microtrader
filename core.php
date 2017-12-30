@@ -205,7 +205,7 @@ else {
  }
 
 
- public function get_url($url)
+function get_url($url)
  {
      $cmd  = "curl --max-time 60 ";
      $cmd .= "'" . $url . "'";
