@@ -10,6 +10,5 @@ $coinbet =  ltrim($strategy_arr[5], '0');
 $targetcoinration =  ltrim($strategy_arr[6], '0');
 $lowvolume = ltrim($strategy_arr[7], '0');
 $exludecoins = array("MEOW","MCRN");
-include 'core_test.php';
 include 'core.php';
  ?>
