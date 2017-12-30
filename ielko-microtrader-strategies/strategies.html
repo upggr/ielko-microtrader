@@ -36,6 +36,20 @@
       async: true,
       success: function(result) {
         console.log(result.labels);
+        var data = {
+          labels: result.labels,
+          series: [
+            result.series_r,
+            result.series_g
+          ]
+        };
+
+        var options = {
+          width: 1024,
+          height: 512
+        };
+
+        new Chartist.Line('.ct-chart', data, options);
       },
       error: function(request, error) {
         console.log(error);
@@ -55,7 +69,7 @@
       width: 1024,
       height: 512
     };
-    new Chartist.Line('.ct-chart', data, options);
+
   });
 </script>
 
