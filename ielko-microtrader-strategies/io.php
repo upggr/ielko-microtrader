@@ -52,7 +52,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 }
 
-$labelsarr
 $aaData = array_values($aaData);
 $labelsarr = array_values($labelsarr);
 
