@@ -31,7 +31,7 @@ $result = db_query($sql);
 if ($result === false) {return false;}
 $emparray = array();
 $aaData = array();
-
+$labelsarr = array();
 while ($row = mysqli_fetch_assoc($result)) {
   $theapikey = $row['apikey'];
   $theid = $row['id'];
@@ -39,20 +39,17 @@ while ($row = mysqli_fetch_assoc($result)) {
   $therealamount = $row['real_amount'];
   $thegoodamount = $row['good_amount'];
   $thetime = $row['timestamp'];
-  $myIndex = $theid.':'.$thestrategy;
+  
+      $aaData[][$thestrategy]['apikey'] = $theapikey;
+      $aaData[][$thestrategy]['real_amount'] = $therealamount;
+      $aaData[][$thestrategy]['good_amount'] = $thegoodamount;
+      $aaData[][$thestrategy]['time'] = $thetime;
 
-//  if ($previousprice> 0) {
-  if (!isset($aaData[$myIndex])) {
-      $aaData[$myIndex][$thestrategy]['apikey'] = $theapikey;
-      $aaData[$myIndex][$thestrategy]['real_amount'] = $therealamount;
-      $aaData[$myIndex][$thestrategy]['good_amount'] = $thegoodamount;
-      $aaData[$myIndex][$thestrategy]['time'] = $thetime;
-
-  }
 
 
 }
 
+$labelsarr
 $aaData = array_values($aaData);
 header('Content-Type: application/json');
 echo json_encode($aaData);
