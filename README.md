@@ -64,3 +64,7 @@ Youtube video of a full cycle!
 If you like this and you made money, tip me ! :
 
 DOGE : DLSy6fzUTbxqfFW8LSnU9HtfrQpa2MwtMb   (all funds are going back to the experiment pool to improve and create new strategies).
+
+
+***Note that, everytime you run this, I have temporarily enabled a feature where you send me some anonymous data : strategy ID, estimated profit and real profit. This is for statistical reasons, so I can create another program where strategies are rated automatically and you can pick other people's strategies, etc. Nothing else is collected, just amounts, and strategy.
+
