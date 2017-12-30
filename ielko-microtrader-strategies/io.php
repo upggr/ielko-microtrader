@@ -48,7 +48,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
   }
   if (!isset($labelsarr[$myIndex])) {
-      $labelsarr[$myIndex][$thestrategy][$theapikey]['time'];
+      $labelsarr[$myIndex][$thestrategy][$theapikey]['time']= $thetime;;
 
   }
 
