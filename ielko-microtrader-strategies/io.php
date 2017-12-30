@@ -39,20 +39,26 @@ while ($row = mysqli_fetch_assoc($result)) {
   $therealamount = $row['real_amount'];
   $thegoodamount = $row['good_amount'];
   $thetime = $row['timestamp'];
-  
-      $aaData[][$thestrategy]['apikey'] = $theapikey;
-      $aaData[][$thestrategy]['real_amount'] = $therealamount;
-      $aaData[][$thestrategy]['good_amount'] = $thegoodamount;
-      $aaData[][$thestrategy]['time'] = $thetime;
+  $myIndex = $theid.':'.$thestrategy;
+  if (!isset($aaData[$myIndex])) {
+      $aaData[$myIndex][$thestrategy]['apikey'] = $theapikey;
+      $aaData[$myIndex][$thestrategy]['real_amount'] = $therealamount;
+      $aaData[$myIndex][$thestrategy]['good_amount'] = $thegoodamount;
+      $aaData[$myIndex][$thestrategy]['time'] = $thetime;
+      $labelsarr[$myIndex][$thestrategy][$theapikey]['time'];
 
+  }
 
 
 }
 
 $labelsarr
 $aaData = array_values($aaData);
+$labelsarr = array_values($labelsarr);
+
+
 header('Content-Type: application/json');
-echo json_encode($aaData);
+echo json_encode($labelsarr);
 //echo '<pre>';print_r($merger);echo '</pre>';
 db_close();
 
