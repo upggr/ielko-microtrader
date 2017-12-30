@@ -15,7 +15,7 @@ function startio()
           break;
 
         case 'submit_data':
-        $apikey =   str_replace( ' ', '', $_GET['apikey'] ); 
+        $apikey =   str_replace( ' ', '', $_GET['apikey'] );
         $strategy =  str_replace( ' ', '', $_GET['strategy'] );
         $real_amount =  str_replace( ' ', '', $_GET['real_amount'] );
         $good_amount =  str_replace( ' ', '', $_GET['good_amount'] );
@@ -25,7 +25,7 @@ db_query($sql) or die(db_error());
           break;
 
           case 'get_data':
-            $sql = "select * from `stats` where timestamp <= CURRENT_DATE() - INTERVAL 1 MONTH";
+            $sql = "select * from `stats` where timestamp BETWEEN SUBDATE(CURDATE(), INTERVAL 1 MONTH) AND NOW();";
   $sql = preg_replace("/(?<=[A-Za-z0-9])(')(?=[A-Za-z0-9])/", "\'", $sql);
   db_query($sql) or die(db_error());
             break;
