@@ -25,9 +25,43 @@ db_query($sql) or die(db_error());
           break;
 
           case 'get_data':
-            $sql = "select * from `stats` where timestamp BETWEEN SUBDATE(CURDATE(), INTERVAL 1 MONTH) AND NOW();";
-  $sql = preg_replace("/(?<=[A-Za-z0-9])(')(?=[A-Za-z0-9])/", "\'", $sql);
-  db_query($sql) or die(db_error());
+$sql = "select * from `stats` where timestamp BETWEEN SUBDATE(CURDATE(), INTERVAL 1 MONTH) AND NOW();";
+$sql = preg_replace("/(?<=[A-Za-z0-9])(')(?=[A-Za-z0-9])/", "\'", $sql);
+$result = db_query($sql);
+if ($result === false) {return false;}
+$emparray = array();
+$aaData = array();
+
+while ($row = mysqli_fetch_assoc($result)) {
+  $theapikey = $row['apikey'];
+  $theid = $row['id'];
+  $thestrategy = $row['strategy'];
+  $therealamount = $row['real_amount'];
+  $thegoodamount = $row['good_amount'];
+  $thetime = $row['timestamp'];
+  $myIndex = $theid.':'.$theapikey;
+
+//  if ($previousprice> 0) {
+  if (!isset($aaData[$myIndex])) {
+      $aaData[$myIndex]['strategy'] = $thestrategy;
+      $aaData[$stor$myIndexeIndex]['real_amount'] = $therealamount;
+      $aaData[$myIndex]['good_amount'] = $thegoodamount;
+      $aaData[$myIndex]['theadtimestampdress'] = $thetime;
+
+  }
+
+
+}
+
+$aaData = array_values($aaData);
+$response = array('data' => $aaData);
+$merger = array_merge($response);
+header('Content-Type: application/json');
+echo json_encode($merger);
+//echo '<pre>';print_r($merger);echo '</pre>';
+db_close();
+
+
   echo 'ok';
             break;
 
