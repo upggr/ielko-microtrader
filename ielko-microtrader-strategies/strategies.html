@@ -35,7 +35,7 @@
       async: true,
       success: function(result) {
 
-        var canvas = document.getElementById('myChart');
+        var ctx = document.getElementById("myChart").getContext('2d');
         var data = {
           labels: result.labels,
           datasets: [{
@@ -65,7 +65,8 @@
           }
         };
 
-        var myBarChart = Chart.Line(canvas, {
+        var myLineChart = new Chart(ctx, {
+          type: 'line',
           data: data,
           options: option
         });
