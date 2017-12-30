@@ -28,6 +28,7 @@ db_query($sql) or die(db_error());
             $sql = "select * from `stats` where timestamp BETWEEN SUBDATE(CURDATE(), INTERVAL 1 MONTH) AND NOW();";
   $sql = preg_replace("/(?<=[A-Za-z0-9])(')(?=[A-Za-z0-9])/", "\'", $sql);
   db_query($sql) or die(db_error());
+  echo 'ok';
             break;
 
 
