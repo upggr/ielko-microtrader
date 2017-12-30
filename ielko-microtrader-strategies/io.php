@@ -45,7 +45,8 @@ while ($row = mysqli_fetch_assoc($result)) {
       $aaData[$myIndex][$thestrategy]['real_amount'] = $therealamount;
       $aaData[$myIndex][$thestrategy]['good_amount'] = $thegoodamount;
       $aaData[$myIndex][$thestrategy]['time'] = $thetime;
-      $labelsarr[$myIndex][$thestrategy][$theapikey]['time']= $thetime;
+  //    $labelsarr[$myIndex][$thestrategy][$theapikey]['time']= $thetime;
+      array_push($labelsarr, $thetime);
 
   }
 
