@@ -19,7 +19,7 @@ function startio()
 }
 }
 else {
-  echo 'no t defined';
+  echo "no T defined \n";
 }
 
 }
