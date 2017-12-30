@@ -15,10 +15,10 @@ function startio()
           break;
 
         case 'submit_data':
-        $apikey =  $_GET['apikey'];
-        $strategy =  $_GET['strategy'];
-        $real_amount =  $_GET['real_amount'];
-        $good_amount =  $_GET['good_amount'];
+        $apikey =   str_replace( ' ', '', $_GET['apikey'] ); 
+        $strategy =  str_replace( ' ', '', $_GET['strategy'] );
+        $real_amount =  str_replace( ' ', '', $_GET['real_amount'] );
+        $good_amount =  str_replace( ' ', '', $_GET['good_amount'] );
           $sql = "INSERT INTO `stats` (`apikey`,`strategy`,`real_amount`,`good_amount`) VALUES ('$apikey','$strategy','$real_amount','$good_amount')";
 $sql = preg_replace("/(?<=[A-Za-z0-9])(')(?=[A-Za-z0-9])/", "\'", $sql);
 db_query($sql) or die(db_error());
