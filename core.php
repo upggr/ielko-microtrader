@@ -30,7 +30,7 @@ try {
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
      echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
   get_url($analyzer."io.php?apikey=".$API_KEY."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
-
+echo "calling".$analyzer."io.php?apikey=".$API_KEY."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data\n";
      $ct->updatePrices();
      $tradepairs = $ct->getPrices();
      $coinpool = array();
