@@ -197,7 +197,7 @@ else {
 }}}
   echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
   echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
-  get_url($analyzer."io.php?apikey=".md5($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
+  get_url($analyzer."io.php?apikey=".base64_encode($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
 }
 
  } catch(Exception $e) {
