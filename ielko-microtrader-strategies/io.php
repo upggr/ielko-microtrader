@@ -39,7 +39,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   $therealamount = $row['real_amount'];
   $thegoodamount = $row['good_amount'];
   $thetime = $row['timestamp'];
-  $myIndex = $theid.':'.$thestrategy;
+  $myIndex = $theid;
   if (!isset($aaData[$myIndex])) {
       $aaData[$myIndex][$thestrategy]['apikey'] = $theapikey;
       $aaData[$myIndex][$thestrategy]['real_amount'] = $therealamount;
