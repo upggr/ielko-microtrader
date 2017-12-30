@@ -60,7 +60,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 $labels = array('labels' => $labelsarr);
 $series_r = array('series_r' => $seriesarr_r);
 $series_g = array('series_g' => $seriesarr_g);
-$merger = array_merge($labels, $series);
+$merger = array_merge($labels, $series_r,$series_g);
 $aaData = array_values($aaData);
 
 
