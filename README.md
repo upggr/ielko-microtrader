@@ -60,6 +60,10 @@ Youtube video of a full cycle!
 ---
 [![Full cycle - strategy2](https://img.youtube.com/vi/-79Iq_Bf5FQ/0.jpg)](https://youtu.be/-79Iq_Bf5FQ)
 
+---
+
+Checkout one of the strategies running live on m,y cryptopia : https://electronicgr.com/cryptobot/ielko-microtrader-strategies/strategies.html
+
 
 If you like this and you made money, tip me ! :
 
