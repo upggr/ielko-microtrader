@@ -185,8 +185,7 @@ echo $api_url_constr2."\n";
 //$pricetosell = $data2['Data']['Buy'][0]['Price'] - ($data2['Data']['Buy'][0]['Price']*0.1);
   $pricetosell = $pricetobuy_next-($pricetobuy_next*0.0001);
      $targetcoins = $coinbet/$pricetobuy;
-     $thefee = 2222;
-     echo "will buy ".$coinbet." ".$coin." worth of ".$coinpool[$x]." at ".$pricetobuy." (".$targetcoins." ".$coinpool[$x].") and will sell at ".$pricetosell." (fee=".$thefee.")\n";
+     echo "will buy ".$coinbet." ".$coin." worth of ".$coinpool[$x]." at ".$pricetobuy." (".$targetcoins." ".$coinpool[$x].") and will sell at ".$pricetosell." \n";
   //   $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
   //   echo "Bought ".$coinpool[$x].$coin." pair (".$targetcoins." ".$coinpool[$x]." ) at ".$pricetobuy." \n\n";
 
