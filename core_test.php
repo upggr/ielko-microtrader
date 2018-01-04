@@ -119,7 +119,7 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
   $data=json_decode($result,true);
   $transno = sizeof($data['Data']);
   if ($data['Success'] == '1') {
-    if ($transno > $lowvolume){
+//    if ($transno > $lowvolume){
    $buycounter = 0;
    $sellcounter = 0;
    $minprice = min(array_column($data['Data'], 'Price'));
@@ -213,11 +213,11 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
     echo "---=== VERDICT ===---\n";
   echo "I have decided not to play with ".$coinpool[$x]."\n\n";
   }
-//  }
+
 }
-  else {
-   echo "trade volume less than the thresholds (".$transno." < ".$lowvolume."), will not trade this coin...\n";
-  }
+//  else {
+//   echo "trade volume less than the thresholds (".$transno." < ".$lowvolume."), will not trade this coin...\n";
+//  }
   else {
     echo "Problem getting market data (API problems) \n";
   }
