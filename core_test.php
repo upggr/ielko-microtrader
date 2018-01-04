@@ -25,7 +25,7 @@ $open_order_coins_flag = ltrim($strategy_arr[9], '0');
 $exludecoins = array("MEOW","MCRN");
 //user supplied parameters
 
-print_seperator("USER VARIABLES");
+  echo print_seperator("USER VARIABLES");
 echo "Target coin market : ".$coin."\n";
 echo "Bank to keep : ".$coincap."\n";
 echo "Hours to look back : ".$hours."\n";
@@ -53,7 +53,7 @@ echo "Play on coins that are on open orders : ".$open_order_coins_flag."\n";
      }
    }
 
-print_seperator("COIN POOL DECISIONS");
+  echo print_seperator("COIN POOL DECISIONS");
    echo "Found " .sizeof($coinpool_all)." coins that can be traded \n";
    echo "Will trade on ".sizeof($coinpool_price_target)." coins that have a trade price between ".$target_coin_min_price." and ".$target_coin_max_price." compared to ".$coin." \n";
 
@@ -74,7 +74,7 @@ else {
 
 
    if ($mycoinbalance > $coincap) {
-     print_seperator("BALANCE UPDATE");
+    echo print_seperator("BALANCE UPDATE");
      echo "Balance of ".$mycoinbalance. "for ".$coin." is higher than user supplied ".$coincap.", starting to trade... \n";
 
 
@@ -108,7 +108,7 @@ else {
 for ($x = 0; $x <= sizeof($coinpool); $x++) {
   $coin_no = $x+1;
   $pool = sizeof($coinpool)+1;
-  print_seperator("ANALYSING COIN");
+  echo print_seperator("ANALYSING COIN");
   echo "Processing coin ".$coin_no." out of ".$pool." (".$coinpool[$x].")\n";
 
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
