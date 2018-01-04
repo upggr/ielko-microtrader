@@ -58,7 +58,7 @@ echo "Play on coins that are on open orders : ".$open_order_coins_flag."\n";
    echo "Will trade on ".sizeof($coinpool_price_target)." coins that have a trade price between ".$target_coin_min_price." and ".$target_coin_max_price." compared to ".$coin." \n";
 
 
-if ($open_order_coins_flag == 1) {
+if ($open_order_coins_flag != 1) {
    $coinsinorder = $ct->activeOrders();
    foreach ($coinsinorder as $key => $value) {
      if (($key_s = array_search(str_replace($coin,"",$value['symbol']), $coinpool_price_target)) !== false) {
@@ -106,10 +106,8 @@ print_r($coinpool);
 //sleep(20);
 
 for ($x = 0; $x <= sizeof($coinpool); $x++) {
-  $coin_no = $x+1;
-  $pool = sizeof($coinpool)+1;
   echo print_seperator("ANALYSING COIN");
-  echo "Processing coin ".$coin_no." out of ".$pool." (".$coinpool[$x].")\n";
+  echo "Processing coin ".$x." out of ".sizeof($coinpool)." (".$coinpool[$x].")\n";
 
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
   if ($mycoinbalance > $coincap) {
