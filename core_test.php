@@ -65,11 +65,11 @@ if ($open_order_coins_flag == 1) {
      unset($coinpool_price_target[$key_s]);
    }
    }
-   $coinpool = $coinpool_price_target;
+   $coinpool = array_values($coinpool_price_target);
    echo "I have reduced the tradeable coin pool to ".sizeof($coinpool)." (excluded coins that are on open orders)\n";
 }
 else {
-  $coinpool = $coinpool_price_target;
+  $coinpool = array_values($coinpool_price_target);
 }
 
 print_r($coinpool);
