@@ -184,14 +184,14 @@ echo $api_url_constr2."\n";
 $pricetosell = $data2['Data']['Buy'][0]['Price'] - ($data2['Data']['Buy'][0]['Price']*0.1);
 
      $targetcoins = $coinbet/$pricetobuy;
-     echo "will buy ".$coinbet." ".$coin." worth of ".$coinpool[$x]." at ".$pricetobuy." (TradePairId = ".$data2['Data']['Sell'][0]['TradePairId'].") (".$targetcoins." ".$coinpool[$x].")\n";
+     echo "will buy ".$coinbet." ".$coin." worth of ".$coinpool[$x]." at ".$pricetobuy." (".$targetcoins." ".$coinpool[$x].") and will sell at ".$pricetosell."\n";
   //   $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
-     echo "Bought ".$coinpool[$x].$coin." pair (".$targetcoins." ".$coinpool[$x]." ) at ".$pricetobuy." \n\n";
+  //   echo "Bought ".$coinpool[$x].$coin." pair (".$targetcoins." ".$coinpool[$x]." ) at ".$pricetobuy." \n\n";
 
      sleep(2);
      $cbal = $ct->getCurrencyBalance( $coinpool[$x] );
   //   $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
-     echo "Placing sell order for the ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." ".$coin."\n\n";
+  //   echo "Placing sell order for the ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." ".$coin."\n\n";
      $sellorders[$x]['pair'] =  $coinpool[$x].$coin;
      $sellorders[$x]['amount'] =  $cbal;
      $sellorders[$x]['sellprice'] =  $pricetosell;
