@@ -49,25 +49,15 @@ echo "Play on coins that their transaction count in the past timeframe is more t
      }
    }
 
-echo sizeof($coinpool_all)."\n";
-print_r($coinpool_all);
-
-echo sizeof($coinpool_price_target)."\n";
-print_r($coinpool_price_target);
-
 echo "Found" .sizeof($coinpool_all)." coins that can be traded \n";
 echo "Will trade on ".sizeof($coinpool_price_target)." coins that have a trade price between ".$target_coin_min_price." and ".$target_coin_max_price." compared to ".$coin." \n";
 
 
 
-
-sleep(20);
-
    $sellorders = array();
-   $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
-     echo "Balance of ".$mycoinbalance. " is higher than ".$coincap.", starting to trade... \n";
-
+     echo "Balance of ".$mycoinbalance. "for ".$coin." is higher than user supplied ".$coincap.", starting to trade... \n";
+sleep(20);
      $openordersarr = $ct->activeOrders();
      $ct->updatePrices();
      $marketsnapshot = $ct->getPrices();
