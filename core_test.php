@@ -111,10 +111,9 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
 
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
   if ($mycoinbalance > $coincap) {
-//  echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. \n";
-
+  echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. \n";
   $api_url_constr = "https://www.cryptopia.co.nz/api/GetMarketHistory/".$coinpool[$x]."_".$coin."/".$hours;
-  //echo $api_url_constr."\n";
+  echo $api_url_constr."\n";
   $result = file_get_contents($api_url_constr);
   $data=json_decode($result,true);
   $transno = sizeof($data['Data']);
@@ -217,7 +216,7 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
 
 }
   else {
-     echo "trade volume less than the thresholds (".$transno." < ".$lowvolume."), will not trade this coin...\n";
+     echo "Trade volume less than the thresholds (".$transno." < ".$lowvolume."), will not trade this coin...\n";
     }
 
 }
