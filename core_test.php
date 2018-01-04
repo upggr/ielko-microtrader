@@ -10,6 +10,7 @@ try {
    $coinpool_price_target = array();
    $coinpool_in_order = array();
    $coinpool = array();
+   $sellorders = array();
 //user supplied parameters
 $coin =  ltrim($strategy_arr[0], '0');
 $coincap =  ltrim($strategy_arr[1], '0');
@@ -65,16 +66,16 @@ if ($open_order_coins_flag == 1) {
    }
    }
    $coinpool = $coinpool_price_target;
-   echo "I have reduced the tradeable coin pool to ".sizeof($coinpool)." (excluded coins that are still on order)\n";
+   echo "I have reduced the tradeable coin pool to ".sizeof($coinpool)." (excluded coins that are on open orders)\n";
 }
 else {
   $coinpool = $coinpool_price_target;
 }
-   
-   $sellorders = array();
+
+
    if ($mycoinbalance > $coincap) {
      echo "Balance of ".$mycoinbalance. "for ".$coin." is higher than user supplied ".$coincap.", starting to trade... \n";
-sleep(20);
+
 
 // send statistics to analytics server
      $openordersarr = $ct->activeOrders();
@@ -101,16 +102,11 @@ sleep(20);
 
 //echo '<pre>';print_r($coinpool);echo '</pre>';
 
-
+sleep(20);
 
 for ($x = 0; $x <= sizeof($coinpool); $x++) {
-  echo "Processing coin ".$x." out of ".sizeof($coinpool)." (".$coinpool[$x].")\n";
-     if (in_array($coinpool[$x] , $exludecoins))
-    {
-echo "Will not trade this coin as it is excluded manually in your strategy settings \n";
-}
-else
-{
+  echo "Processing coin ".$x+1." out of ".sizeof($coinpool)+1." (".$coinpool[$x].")\n";
+
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
   if ($mycoinbalance > $coincap) {
 //  echo "Balance of ".$mycoinbalance." ".$coin. " is higher than ".$coincap.", therefore I will keep trading. \n";
@@ -173,11 +169,11 @@ else
       echo "---=== VERDICT ===---\n";
   echo "I have decided to play with ".$coinpool[$x]."\n";
     $api_url_constr2 = "https://www.cryptopia.co.nz/api/GetMarketOrders/".$coinpool[$x]."_".$coin."/10";
-  //  echo $api_url_constr2."\n";
+
     $result2 = file_get_contents($api_url_constr2);
     $data2=json_decode($result2,true);
     if ($data2['Success'] == '1') {
-  //   echo '<pre>';print_r($data2['Data']['Sell']);echo '<pre>';
+
    echo "I need to buy ".$coinbet." worth of  ".$coin."\n";
    if ($data2['Data']['Sell'][0]['Volume'] > $coinbet)
    {
@@ -185,12 +181,12 @@ else
      $pricetosell = $pricetobuy+($pricetobuy*$targetprofit);
      $targetcoins = $coinbet/$pricetobuy;
      echo "will buy ".$coinbet." ".$coin." worth of ".$coinpool[$x]." at ".$pricetobuy." (TradePairId = ".$data2['Data']['Sell'][0]['TradePairId'].") (".$targetcoins." ".$coinpool[$x].")\n";
-     $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
+  //   $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
      echo "Bought ".$coinpool[$x].$coin." pair (".$targetcoins." ".$coinpool[$x]." ) at ".$pricetobuy." \n\n";
 
      sleep(2);
      $cbal = $ct->getCurrencyBalance( $coinpool[$x] );
-     $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
+  //   $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
      echo "Placing sell order for the ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." ".$coin."\n\n";
      $sellorders[$x]['pair'] =  $coinpool[$x].$coin;
      $sellorders[$x]['amount'] =  $cbal;
@@ -225,7 +221,7 @@ else
   echo "Balance of ".$mycoinbalance." ".$coin. " is lower than ".$coincap.", therefore I will stop trading now. \n";
   }
   sleep(1);
-}
+
 
 }
    }
