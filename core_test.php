@@ -71,8 +71,6 @@ if ($open_order_coins_flag != 1) {
 else {
   $coinpool = array_values($coinpool_price_target);
 }
-
-print_r($coinpool);
    if ($mycoinbalance > $coincap) {
     echo print_seperator("BALANCE UPDATE");
      echo "Balance of ".$mycoinbalance. "for ".$coin." is higher than user supplied ".$coincap.", starting to trade... \n";
@@ -160,7 +158,7 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
   }
 
   echo "most of the people are in ".$tradeflag." mode\n";
-  echo "price is ".$direction_flag."\n";
+  echo "price is ".$direction_flag." (from ".$minprice_d." to ".$maxprice_d.")\n";
   echo $coinpool[$x]." had a min price of ".$minprice." and a max price of ".$maxprice."\n";
   echo $coinpool[$x]." started at ".$minprice_d." and finished at ".$maxprice_d."\n";
   echo $coinpool[$x]." flunctuated ".round($flunc)."% in the past ".$hours." hours\n" ;
