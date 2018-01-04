@@ -121,7 +121,7 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
    $sellcounter = 0;
    $sellarray = array_filter($data['Data'], function ($var) { return ($var['Type'] == 'Sell');});
    $transno_sell = sizeof($sellarray);
-
+print_r($sellarray);
    $minprice = min(array_column($sellarray, 'Price'));
    $minprice_d = $sellarray[$transno_sell]['Price'];
    $maxprice_d = $sellarray[0]['Price'];
