@@ -6,8 +6,8 @@ $analyzer = "https://electronicgr.com/cryptobot/ielko-microtrader-strategies/";
 try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
-   $coinpool = array();
-
+   $coinpool_all = array();
+   $coinpool_price_target = array();
 //user supplied parameters
 $coin =  ltrim($strategy_arr[0], '0');
 $coincap =  ltrim($strategy_arr[1], '0');
@@ -40,14 +40,24 @@ echo "Play on coins that their transaction count in the past timeframe is more t
    foreach ($tradepairs as $key => $value) {
      if (strpos($key, $coin) !== false & strpos($key, $coin) !== 0) {
     //   if ($value['last'] < $targetcoinration) {
-    $thecoin = str_replace('/'.$coin,"",$key);
-       array_push($coinpool,$thecoin);
-    //            }
+      $thecoin = str_replace('/'.$coin,"",$key);
+       array_push($coinpool_all,$thecoin);
+          if ($value['last'] > $target_coin_min_price &  $value['last'] < $target_coin_max_price) {
+              array_push($coinpool_price_target,$thecoin);
+            }
+
      }
    }
 
-echo sizeof($coinpool)."\n";
-print_r($coinpool);
+echo sizeof($coinpool_all)."\n";
+print_r($coinpool_all);
+
+echo sizeof($coinpool_price_target)."\n";
+print_r($coinpool_price_target);
+
+
+
+
 
 sleep(20);
 
