@@ -119,6 +119,8 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
     if ($transno > $lowvolume){
    $buycounter = 0;
    $sellcounter = 0;
+   $sellarray = array_filter($data['Data'], function ($var) { return ($var['Type'] == 'Sell');});
+   print_r($sellarray);
    $minprice = min(array_column($data['Data'], 'Price'));
    $minprice_d = $data['Data'][$transno-1]['Price'];
    $maxprice_d = $data['Data'][0]['Price'];
@@ -158,9 +160,8 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
   }
 
   echo "most of the people are in ".$tradeflag." mode\n";
-  echo "price is ".$direction_flag." (from ".$minprice_d." to ".$maxprice_d.")\n";
+  echo $coinpool[$x]." is ".$direction_flag." in price (from ".$minprice_d." to ".$maxprice_d.")\n";
   echo $coinpool[$x]." had a min price of ".$minprice." and a max price of ".$maxprice."\n";
-  echo $coinpool[$x]." started at ".$minprice_d." and finished at ".$maxprice_d."\n";
   echo $coinpool[$x]." flunctuated ".round($flunc)."% in the past ".$hours." hours\n" ;
   echo $coinpool[$x]." changed ".round($difference)."% in the past ".$hours." hours \n" ;
     echo "---=== SUMMARY ===---\n";
