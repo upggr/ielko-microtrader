@@ -180,9 +180,10 @@ echo $api_url_constr2."\n";
    if ($data2['Data']['Sell'][0]['Volume'] > $coinbet)
    {
      $pricetobuy = $data2['Data']['Sell'][0]['Price'];
-     $pricetosell = $pricetobuy+($pricetobuy*$targetprofit);
+     $pricetobuy_next = $data2['Data']['Sell'][1]['Price'];
+  //   $pricetosell = $pricetobuy+($pricetobuy*$targetprofit);
 //$pricetosell = $data2['Data']['Buy'][0]['Price'] - ($data2['Data']['Buy'][0]['Price']*0.1);
-
+  $pricetosell = $pricetobuy_next-($pricetobuy_next*0.0001);
      $targetcoins = $coinbet/$pricetobuy;
      $thefee = 2222;
      echo "will buy ".$coinbet." ".$coin." worth of ".$coinpool[$x]." at ".$pricetobuy." (".$targetcoins." ".$coinpool[$x].") and will sell at ".$pricetosell." (fee=".$thefee.")\n";
