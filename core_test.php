@@ -102,10 +102,12 @@ else {
 
 //echo '<pre>';print_r($coinpool);echo '</pre>';
 
-sleep(20);
+//sleep(20);
 
 for ($x = 0; $x <= sizeof($coinpool); $x++) {
-  echo "Processing coin ".$x+1." out of ".sizeof($coinpool)+1." (".$coinpool[$x].")\n";
+  $coin_no = $x+1;
+  $pool = sizeof($coinpool)+1;
+  echo "Processing coin ".$coin_no." out of ".$pool." (".$coinpool[$x].")\n";
 
   $mycoinbalance = $ct->getCurrencyBalance( $coin );
   if ($mycoinbalance > $coincap) {
