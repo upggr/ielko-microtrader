@@ -5,6 +5,24 @@ include 'config.php';
 $analyzer = "https://electronicgr.com/cryptobot/ielko-microtrader-strategies/";
 try {
    $ct = New Cryptopia($API_SECRET, $API_KEY);
+   $mycoinbalance = $ct->getCurrencyBalance( $coin );
+   $coinpool = array();
+
+// fill coinpool with the coins that are on the current coin market
+   $ct->updatePrices();
+   $tradepairs = $ct->getPrices();
+   foreach ($tradepairs as $key => $value) {
+     if (strpos($key, $coin) !== false) {
+       if ($value['last'] < $targetcoinration) {
+       array_push($coinpool,str_replace('/'.$coin,"",$key));
+                }
+     }
+   }
+
+print_r($coinpool);
+
+break;
+
    $sellorders = array();
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    if ($mycoinbalance > $coincap) {
@@ -30,16 +48,7 @@ try {
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
      echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
      get_url($analyzer."io.php?apikey=".base64_encode($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
-     $ct->updatePrices();
-     $tradepairs = $ct->getPrices();
-     $coinpool = array();
-     foreach ($tradepairs as $key => $value) {
-       if (strpos($key, $coin) !== false) {
-         if ($value['last'] < $targetcoinration) {
-         array_push($coinpool,str_replace('/'.$coin,"",$key));
-                  }
-       }
-     }
+
 //echo '<pre>';print_r($coinpool);echo '</pre>';
 echo "I have found ".sizeof($coinpool)." tradable coins \n";
   $coinsinorder = $ct->activeOrders();
