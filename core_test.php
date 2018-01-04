@@ -214,6 +214,7 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
   echo "I have decided not to play with ".$coinpool[$x]."\n\n";
   }
   }
+}
   else {
    echo "trade volume less than the thresholds (".$transno." < ".$lowvolume."), will not trade this coin...\n";
   }
