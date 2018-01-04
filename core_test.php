@@ -8,6 +8,8 @@ try {
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    $coinpool_all = array();
    $coinpool_price_target = array();
+   $coinpool_in_order = array();
+   $coinpool = array();
 //user supplied parameters
 $coin =  ltrim($strategy_arr[0], '0');
 $coincap =  ltrim($strategy_arr[1], '0');
@@ -50,19 +52,34 @@ echo "Play on coins that are on open orders : ".$open_order_coins_flag."\n";
      }
    }
 
-echo "Found" .sizeof($coinpool_all)." coins that can be traded \n";
-echo "Will trade on ".sizeof($coinpool_price_target)." coins that have a trade price between ".$target_coin_min_price." and ".$target_coin_max_price." compared to ".$coin." \n";
+
+   echo "Found" .sizeof($coinpool_all)." coins that can be traded \n";
+   echo "Will trade on ".sizeof($coinpool_price_target)." coins that have a trade price between ".$target_coin_min_price." and ".$target_coin_max_price." compared to ".$coin." \n";
 
 
-
+if ($open_order_coins_flag == 1) {
+   $coinsinorder = $ct->activeOrders();
+   foreach ($coinsinorder as $key => $value) {
+     if (($key_s = array_search(str_replace($coin,"",$value['symbol']), $coinpool_price_target)) !== false) {
+     unset($coinpool_price_target[$key_s]);
+   }
+   }
+   $coinpool = $coinpool_price_target;
+   echo "I have reduced the tradeable coin pool to ".sizeof($coinpool)." (excluded coins that are still on order)\n";
+}
+else {
+  $coinpool = $coinpool_price_target;
+}
+   
    $sellorders = array();
    if ($mycoinbalance > $coincap) {
      echo "Balance of ".$mycoinbalance. "for ".$coin." is higher than user supplied ".$coincap.", starting to trade... \n";
 sleep(20);
+
+// send statistics to analytics server
      $openordersarr = $ct->activeOrders();
      $ct->updatePrices();
      $marketsnapshot = $ct->getPrices();
-  //   print_r($marketsnapshot);
      $basecoinbal_pred = $mycoinbalance;
      $basecoinbal_real = $mycoinbalance;
      foreach ($openordersarr as  $value) {
@@ -71,24 +88,20 @@ sleep(20);
              $thesymbol = str_replace($coin, "", $value['symbol']);
              $thepred_price = $value['price'];
              $theamount = $value['amount'];
-         $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
-               $basecoinbal_real = $basecoinbal_real + ($theamount*$marketsnapshot[$thesymbol.'/'.$coin]['bid']);
-      //   echo $thesymbol.'/'.$coin."   ".print_r($marketsnapshot[$thesymbol.'/'.$coin])."\n";
-
-   }}}
+             $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
+             $basecoinbal_real = $basecoinbal_real + ($theamount*$marketsnapshot[$thesymbol.'/'.$coin]['bid']);
+          }
+        }
+      }
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
      echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
      get_url($analyzer."io.php?apikey=".base64_encode($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
+// send statistics to analytics server
+
 
 //echo '<pre>';print_r($coinpool);echo '</pre>';
-echo "I have found ".sizeof($coinpool)." tradable coins \n";
-  $coinsinorder = $ct->activeOrders();
-  foreach ($coinsinorder as $key => $value) {
-    if (($key_s = array_search(str_replace($coin,"",$value['symbol']), $coinpool)) !== false) {
-    unset($coinpool[$key_s]);
-}
-  }
-echo "I have reduced the tradeable coin pool to ".sizeof($coinpool)." (excluded coins that are still on order)\n";
+
+
 
 for ($x = 0; $x <= sizeof($coinpool); $x++) {
   echo "Processing coin ".$x." out of ".sizeof($coinpool)." (".$coinpool[$x].")\n";
