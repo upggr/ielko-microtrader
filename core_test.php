@@ -18,7 +18,7 @@ $coinbet =  ltrim($strategy_arr[5], '0');
 $target_coin_min_price =  ltrim($strategy_arr[6], '0');
 $target_coin_max_price =  ltrim($strategy_arr[7], '0');
 $lowvolume = ltrim($strategy_arr[8], '0');
-
+$open_order_coins_flag = ltrim($strategy_arr[9], '0');
 $exludecoins = array("MEOW","MCRN");
 //user supplied parameters
 
@@ -32,7 +32,7 @@ echo "Increments of the coin to play : ".$coinbet."\n";
 echo "Play on coins that in comparison to the the coin have a ratio of more than : ".$target_coin_min_price."\n";
 echo "Play on coins that in comparison to the the coin have a ratio of less than : ".$target_coin_max_price."\n";
 echo "Play on coins that their transaction count in the past timeframe is more than : ".$lowvolume."\n";
-
+echo "Play on coins that are on open orders : ".$open_order_coins_flag."\n";
 //000000DOGE_0000000010_0000000048_0000000010_0000000.20_0000000030_0000000000_0000000100_0000000010
 
 // fill coinpool with the coins that are on the current coin market
