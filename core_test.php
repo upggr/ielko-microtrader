@@ -18,6 +18,7 @@ $coinbet =  ltrim($strategy_arr[5], '0');
 $target_coin_min_price =  ltrim($strategy_arr[6], '0');
 $target_coin_max_price =  ltrim($strategy_arr[7], '0');
 $lowvolume = ltrim($strategy_arr[8], '0');
+
 $exludecoins = array("MEOW","MCRN");
 //user supplied parameters
 
@@ -216,26 +217,7 @@ else
 }
    }
 else {
-  echo "not enough balance of the coin to play... \n";
-  $openordersarr = $ct->activeOrders();
-  $ct->updatePrices();
-  $marketsnapshot = $ct->getPrices();
-//   print_r($marketsnapshot);
-  $basecoinbal_pred = $mycoinbalance;
-  $basecoinbal_real = $mycoinbalance;
-  foreach ($openordersarr as  $value) {
-      if ($value['type'] == 'Sell') {
-        if (strpos($value['symbol'], $coin) !== false) {
-          $thesymbol = str_replace($coin, "", $value['symbol']);
-          $thepred_price = $value['price'];
-          $theamount = $value['amount'];
-      $basecoinbal_pred = $basecoinbal_pred + ($thepred_price*$theamount);
-      $basecoinbal_real = $basecoinbal_real + ($theamount*$marketsnapshot[$thesymbol.'/'.$coin]['bid']);
-
-}}}
-  echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
-  echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
-  get_url($analyzer."io.php?apikey=".base64_encode($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
+  echo "Balance of ".$mycoinbalance. "for ".$coin." is lower than user supplied ".$coincap.", stopping trading until balance is higher... \n";
 }
 
  } catch(Exception $e) {
