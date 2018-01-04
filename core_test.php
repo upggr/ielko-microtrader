@@ -122,7 +122,6 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
    $sellarray = array_filter($data['Data'], function ($var) { return ($var['Type'] == 'Sell');});
    $sellarray = array_values($sellarray);
    $transno_sell = sizeof($sellarray);
-   print_r($sellarray);
    $minprice = min(array_column($sellarray, 'Price'));
    $minprice_d = $sellarray[$transno_sell-1]['Price'];
    $maxprice_d = $sellarray[0]['Price'];
@@ -172,7 +171,7 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
       echo "---=== VERDICT ===---\n";
   echo "I have decided to play with ".$coinpool[$x]."\n";
     $api_url_constr2 = "https://www.cryptopia.co.nz/api/GetMarketOrders/".$coinpool[$x]."_".$coin."/10";
-
+echo $api_url_constr2."\n";
     $result2 = file_get_contents($api_url_constr2);
     $data2=json_decode($result2,true);
     if ($data2['Success'] == '1') {
