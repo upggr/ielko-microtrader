@@ -13,9 +13,9 @@ try {
    $tradepairs = $ct->getPrices();
    foreach ($tradepairs as $key => $value) {
      if (strpos($key, $coin) !== false) {
-       if ($value['last'] < $targetcoinration) {
+    //   if ($value['last'] < $targetcoinration) {
        array_push($coinpool,str_replace('/'.$coin,"",$key));
-                }
+    //            }
      }
    }
 
