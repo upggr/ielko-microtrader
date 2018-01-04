@@ -21,7 +21,7 @@ try {
 
 print_r($coinpool);
 
-break;
+sleep(20);
 
    $sellorders = array();
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
