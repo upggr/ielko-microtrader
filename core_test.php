@@ -8,6 +8,30 @@ try {
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    $coinpool = array();
 
+//user supplied parameters
+$coin =  ltrim($strategy_arr[0], '0');
+$coincap =  ltrim($strategy_arr[1], '0');
+$hours =  ltrim($strategy_arr[2], '0');
+$buyifabove =  ltrim($strategy_arr[3], '0');
+$targetprofit =  ltrim($strategy_arr[4], '0');
+$coinbet =  ltrim($strategy_arr[5], '0');
+$target_coin_min_price =  ltrim($strategy_arr[6], '0');
+$target_coin_max_price =  ltrim($strategy_arr[7], '0');
+$lowvolume = ltrim($strategy_arr[8], '0');
+$exludecoins = array("MEOW","MCRN");
+//user supplied parameters
+
+echo "USER SUPPLIED VARIABLES : \n";
+echo "Target coin market : ".$coin."\n";
+echo "Bank to keep : ".$coincap."\n";
+echo "Hours to look back : ".$hours."\n";
+echo "Buy coin if increase was more than : ".$buyifabove."% \n";
+echo "Target profit to make in each round : ".$targetprofit."\n";
+echo "Increments of the coin to play : ".$coinbet."\n";
+echo "Play on coins that in comparison to the the coin have a ratio of more than : ".$target_coin_min_price."\n";
+echo "Play on coins that in comparison to the the coin have a ratio of less than : ".$target_coin_max_price."\n";
+echo "Play on coins that their transaction count in the past timeframe is more than : ".$lowvolume."\n";
+
 // fill coinpool with the coins that are on the current coin market
    $ct->updatePrices();
    $tradepairs = $ct->getPrices();
