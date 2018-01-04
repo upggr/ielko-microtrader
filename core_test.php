@@ -55,6 +55,8 @@ print_r($coinpool_all);
 echo sizeof($coinpool_price_target)."\n";
 print_r($coinpool_price_target);
 
+echo "Found" .sizeof($coinpool_all)." coins that can be traded \n";
+echo "Will trade on ".sizeof($coinpool_price_target)." coins that have a trade price between ".$target_coin_min_price." and ".$target_coin_max_price." compared to ".$coin." \n";
 
 
 
