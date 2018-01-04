@@ -12,10 +12,10 @@ try {
    $ct->updatePrices();
    $tradepairs = $ct->getPrices();
    foreach ($tradepairs as $key => $value) {
-     if (strpos($key, $coin) !== false) {
+     if (strpos($key, $coin) !== false & strpos($key, $coin) !== 0) {
     //   if ($value['last'] < $targetcoinration) {
-    //   array_push($coinpool,str_replace('/'.$coin,"",$key));
-       array_push($coinpool,$key);
+    $thecoin = str_replace('/'.$coin,"",$key);
+       array_push($coinpool,$thecoin);
     //            }
      }
    }
