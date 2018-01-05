@@ -121,6 +121,12 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
    $sellcounter = 0;
    $sellarray = array_filter($data['Data'], function ($var) { return ($var['Type'] == 'Sell');});
    $sellarray = array_values($sellarray);
+   $buyarray = array_filter($data['Data'], function ($var) { return ($var['Type'] == 'Buy');});
+   $buyarray = array_values($sellarray);
+
+    $buy_sell_ratio = $sellarray[0]['Price'] / $buyarray[0]['Price'];
+echo "the buy sell ratio is ".$buy_sell_ratio."\n";
+
    $transno_sell = sizeof($sellarray);
    $minprice = min(array_column($sellarray, 'Price'));
    $minprice_d = $sellarray[$transno_sell-1]['Price'];
@@ -181,6 +187,8 @@ echo $api_url_constr2."\n";
    {
      $pricetobuy = $data2['Data']['Sell'][0]['Price'];
      $pricetobuy_next = $data2['Data']['Sell'][1]['Price'];
+
+
   //   $pricetosell = $pricetobuy+($pricetobuy*$targetprofit);
 //$pricetosell = $data2['Data']['Buy'][0]['Price'] - ($data2['Data']['Buy'][0]['Price']*0.1);
   $pricetosell = $pricetobuy_next-($pricetobuy_next*0.0001);
