@@ -57,20 +57,28 @@
 
       <div class="form-group">
         <label for="targetprofit">Target profit (expressed in decimal % - allowed 0.00 to 1)</label>
-        <input type="number" min="0" max="1" class="form-control" id="targetprofit" aria-describedby="targetprofit" placeholder="0.05" value="0.05">
+        <input type="number" min="0" max="1" class="form-control" id="targetprofit" aria-describedby="targetprofit" placeholder="0.15" value="0.15">
         <small id="targetprofit" class="form-text text-muted">target proft to make (sell order) </small>
       </div>
 
       <div class="form-group">
         <label for="coinbet">Base coin bet increments</label>
-        <input type="number" min="0" class="form-control" id="coinbet" aria-describedby="coinbet" placeholder="20" value="20">
+        <input type="number" min="0" class="form-control" id="coinbet" aria-describedby="coinbet" placeholder="502" value="502">
         <small id="coinbet" class="form-text text-muted">increments of $coin to play </small>
       </div>
 
+
       <div class="form-group">
-        <label for="targetcoinration">Target coins exchange amount</label>
-        <input type="number" min="0" class="form-control" id="targetcoinration" aria-describedby="targetcoinration" placeholder="0.5" value="0.5">
-        <small id="targetcoinration" class="form-text text-muted">only play on coins that their price is less than this compared to the base coin. (for example if target coin price is 0.3 of the base coin, and you enter here 0.4, it will play on it.)</small>
+        <label for="target_coin_min_price">Target coins exchange amount min</label>
+        <input type="number" min="0" class="form-control" id="target_coin_min_price" aria-describedby="target_coin_min_price" placeholder="0" value="0">
+        <small id="target_coin_min_price" class="form-text text-muted">only play on coins that their price is more than this compared to the base coin. (for example if target coin price is 0.3 of the base coin, and you enter here 0.4, it will play on it.)</small>
+      </div>
+
+
+      <div class="form-group">
+        <label for="target_coin_max_price">Target coins exchange amount max</label>
+        <input type="number" min="0" class="form-control" id="target_coin_max_price" aria-describedby="target_coin_max_price" placeholder="100" value="100">
+        <small id="target_coin_max_price" class="form-text text-muted">only play on coins that their price is less than this compared to the base coin. (for example if target coin price is 0.3 of the base coin, and you enter here 0.4, it will play on it.)</small>
       </div>
 
       <div class="form-group">
@@ -79,6 +87,11 @@
         <small id="lowvolume" class="form-text text-muted">only trade the coin if there has been more than this amount of transactions in the past Market data history duration </small>
       </div>
 
+      <div class="form-group">
+        <label for="onorder">Market volume</label>
+        <input type="number" min="0" class="form-control" id="onorder" aria-describedby="onorder" placeholder="0" value="0">
+        <small id="onorder" class="form-text text-muted">only trade coins that are not order (0) or all coins (1)</small>
+      </div>
 
       <div class="alert">
       </div>
@@ -103,9 +116,12 @@
       var buyifabove = $("#buyifabove").val();
       var targetprofit = $("#targetprofit").val();
       var coinbet = $("#coinbet").val();
-      var targetcoinration = $("#targetcoinration").val();
+      var target_coin_min_price = $("#target_coin_min_price").val();
+      var target_coin_max_price = $("#target_coin_max_price").val();
       var lowvolume = $("#lowvolume").val();
-      var strategy = pad(coin, 10) + "_" + pad(coincap, 10) + "_" + pad(hours, 10) + "_" + pad(buyifabove, 10) + "_" + pad(targetprofit, 10) + "_" + pad(coinbet, 10) + "_" + pad(targetcoinration, 10) + "_" + pad(lowvolume, 10);
+      var onorder = $("#onorder").val();
+      var strategy = pad(coin, 10) + "_" + pad(coincap, 10) + "_" + pad(hours, 10) + "_" + pad(buyifabove, 10) + "_" + pad(targetprofit, 10) + "_" + pad(coinbet, 10) + "_" + pad(target_coin_min_price, 10) + "_" + pad(target_coin_mac_price,
+        10) + "_" + pad(lowvolume, 10) + "_" + pad(onorder, 10);
       if (strategy.length == 87) {
         $('.alert').removeClass('alert-danger');
         $(".alert").empty().append("here is your strategy id : " + strategy + "<br /> You can now go and run php index-cli.php " + strategy);

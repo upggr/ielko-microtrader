@@ -19,13 +19,13 @@ Suggestions :
 4. I suggest you use the command line. If you dont, make sure your php enabled webserver can run php scripts that can last more than 5 minutes as checking all coins is a lengthy process.
 
 Running :
-1. Use provided strategy_creator.html to create a strategy, or use 000000DOGE_0000000020_0000000024_0000000010_0000000.05_0000000020_00000000.5_0000000020 or go online make your own : https://electronicgr.com/cryptobot/ielko-microtrader-strategies/strategy_creator.html
-2. If you want to run from the console use "php index-cli.php 000000DOGE_0000000020_0000000024_0000000010_0000000.05_0000000020_00000000.5_0000000020" but if you call from the browser just visit http://localhost.or.any.other.address/index.php?strategy=000000DOGE_0000000020_0000000024_0000000010_0000000.05_0000000020_00000000.5_0000000020
+1. Use provided strategy_creator.html to create a strategy, or use DOGE_10_48_10_0.15_502_0_100_10 or go online make your own : https://electronicgr.com/cryptobot/ielko-microtrader-strategies/strategy_creator.html
+2. If you want to run from the console use "php index-cli.php DOGE_10_48_10_0.15_502_0_100_10" but if you call from the browser just visit http://localhost.or.any.other.address/index.php?strategy=DOGE_10_48_10_0.15_502_0_100_10
 
 
 Strategy1 :
 On the sample strategy provided,
-We are targeting all DOGE pairs in cryptopia that have a price < 0.5 DOGE , have traded more than 20 times in the past 48 hours, had movement of more than 10% in the past 48 hours, were selling mostly in the past 48 hours. We are buying in increments of 20 DOGE and whenever we buy we also create a sell order at a price 5% more than the buy price.
+We are targeting all DOGE pairs in cryptopia that have a price < 0.5 DOGE , have traded more than 20 times in the past 48 hours, had movement of more than 10% in the past 48 hours, were selling mostly in the past 48 hours. We are buying in increments of 502 DOGE and whenever we buy we also create a sell order at a price 15% more than the buy price.
 
 Note that running this strategy as per the variable $coincap even if you have 1.000.000 DOGE, in the end you will be left with 20 DOGE and all the others will be spread to the other coins until the sell orders are fullfilled.
 
