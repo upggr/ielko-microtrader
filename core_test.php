@@ -175,14 +175,14 @@ echo "the buy sell ratio is ".$buy_sell_ratio." (".$sellarray[0]['Price']." VS "
   echo "Summary for ".$coinpool[$x]." : direction is : ".$direction_flag." and change > buyifabove (".$difference." > ".$buyifabove.") and tradeflag = ".$tradeflag." and Buy/sell ratio = ".$buy_sell_ratio."\n";
   if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag == 'buy') && ($buy_sell_ratio < 0.5)) {
       echo "---=== VERDICT ===---\n";
-  echo "I have decided to play with ".$coinpool[$x]."\n";
+  echo "---============I have decided to play with ".$coinpool[$x]."============---\n";
     $api_url_constr2 = "https://www.cryptopia.co.nz/api/GetMarketOrders/".$coinpool[$x]."_".$coin."/10";
 echo $api_url_constr2."\n";
     $result2 = file_get_contents($api_url_constr2);
     $data2=json_decode($result2,true);
     if ($data2['Success'] == '1') {
 
-   echo "I need to buy ".$coinbet." worth of  ".$coin."\n";
+   echo "---==========I need to buy ".$coinbet." worth of  ".$coin."===========---\n";
    if ($data2['Data']['Sell'][0]['Volume'] > $coinbet)
    {
      $pricetobuy = $data2['Data']['Sell'][0]['Price'];
