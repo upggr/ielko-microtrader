@@ -125,7 +125,7 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
    $buyarray = array_values($sellarray);
 
     $buy_sell_ratio = $sellarray[0]['Price'] / $buyarray[0]['Price'];
-echo "the buy sell ratio is ".$buy_sell_ratio."\n";
+echo "the buy sell ratio is ".$buy_sell_ratio." (".$sellarray[0]['Price']." VS ".$buyarray[0]['Price'].")\n";
 
    $transno_sell = sizeof($sellarray);
    $minprice = min(array_column($sellarray, 'Price'));
