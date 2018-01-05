@@ -122,7 +122,7 @@ for ($x = 0; $x <= sizeof($coinpool); $x++) {
    $sellarray = array_filter($data['Data'], function ($var) { return ($var['Type'] == 'Sell');});
    $sellarray = array_values($sellarray);
    $buyarray = array_filter($data['Data'], function ($var) { return ($var['Type'] == 'Buy');});
-   $buyarray = array_values($sellarray);
+   $buyarray = array_values($buyarray);
 
     $buy_sell_ratio = $sellarray[0]['Price'] / $buyarray[0]['Price'];
 echo "the buy sell ratio is ".$buy_sell_ratio." (".$sellarray[0]['Price']." VS ".$buyarray[0]['Price'].")\n";
