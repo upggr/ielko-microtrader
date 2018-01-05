@@ -172,7 +172,7 @@ echo "the buy sell ratio is ".$buy_sell_ratio." (".$sellarray[0]['Price']." VS "
   echo $coinpool[$x]." flunctuated ".round($flunc)."% in the past ".$hours." hours\n" ;
   echo $coinpool[$x]." changed ".round($difference)."% in the past ".$hours." hours \n" ;
     echo "---=== SUMMARY ===---\n";
-  echo "Summary for ".$coinpool[$x]." : direction is : ".$direction_flag." and change > buyifabove (".$difference." > ".$buyifabove.") and tradeflag = ".$tradeflag."\n";
+  echo "Summary for ".$coinpool[$x]." : direction is : ".$direction_flag." and change > buyifabove (".$difference." > ".$buyifabove.") and tradeflag = ".$tradeflag." and Buy/sell ratio = ".$buy_sell_ratio."\n";
   if ($direction_flag == 'rising' && ($difference > $buyifabove) && ($tradeflag == 'buy') && ($buy_sell_ratio < 0.5)) {
       echo "---=== VERDICT ===---\n";
   echo "I have decided to play with ".$coinpool[$x]."\n";
