@@ -4,7 +4,7 @@ include 'bower_components/cryptopia-api-php/cryptopiaAPI.php';
 include 'config.php';
 $analyzer = "https://electronicgr.com/cryptobot/ielko-microtrader-strategies/";
 try {
-   $ct = New Cryptopia($API_SECRET, $API_KEY);
+   $ct = New Cryptopia($API_SECRET_CRYPTOPIA, $API_KEY_CRYPTOPIA);
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    $coinpool_all = array();
    $coinpool_price_target = array();
