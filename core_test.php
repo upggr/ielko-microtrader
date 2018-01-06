@@ -4,7 +4,7 @@ include 'bower_components/cryptopia-api-php/cryptopiaAPI.php';
 include 'config.php';
 $analyzer = "https://electronicgr.com/cryptobot/ielko-microtrader-strategies/";
 try {
-   $ct = New Cryptopia($API_SECRET, $API_KEY);
+   $ct = New Cryptopia($API_SECRET_CRYPTOPIA, $API_KEY_CRYPTOPIA);
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    $coinpool_all = array();
    $coinpool_price_target = array();
@@ -195,12 +195,12 @@ echo $api_url_constr2."\n";
 //  $pricetosell = $pricetobuy_next-($pricetobuy_next*0.0001);
      $targetcoins = $coinbet/$pricetobuy;
      echo "will buy ".$coinbet." ".$coin." worth of ".$coinpool[$x]." at ".$pricetobuy." (".$targetcoins." ".$coinpool[$x].") and will sell at ".$pricetosell." \n";
-  //   $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
+     $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
   //   echo "Bought ".$coinpool[$x].$coin." pair (".$targetcoins." ".$coinpool[$x]." ) at ".$pricetobuy." \n\n";
 
-     sleep(2);
+     sleep(3);
      $cbal = $ct->getCurrencyBalance( $coinpool[$x] );
-  //   $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
+     $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
   //   echo "Placing sell order for the ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." ".$coin."\n\n";
      $sellorders[$x]['pair'] =  $coinpool[$x].$coin;
      $sellorders[$x]['amount'] =  $cbal;
