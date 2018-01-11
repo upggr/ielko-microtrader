@@ -22,7 +22,6 @@ $target_coin_min_price =  ltrim($strategy_arr[6], '0');
 $target_coin_max_price =  ltrim($strategy_arr[7], '0');
 $lowvolume = ltrim($strategy_arr[8], '0');
 $open_order_coins_flag = ltrim($strategy_arr[9], '0');
-$exludecoins = array("MEOW","MCRN");
 //user supplied parameters
 
   echo print_seperator("USER VARIABLES");
@@ -37,7 +36,7 @@ echo "Play on coins that in comparison to the the coin have a ratio of less than
 echo "Play on coins that their transaction count in the past timeframe is more than : ".$lowvolume."\n";
 echo "Play on coins that are on open orders : ".$open_order_coins_flag."\n";
 //DOGE_10_48_10_0.20_502_0_100_10
-
+//php index-cli_test.php BTC_0.0005_48_10_0.15_0.0005_0_100_48_0
 
 // fill coinpool with the coins that are on the current coin market
    $ct->updatePrices();
@@ -195,13 +194,13 @@ echo $api_url_constr2."\n";
 //  $pricetosell = $pricetobuy_next-($pricetobuy_next*0.0001);
      $targetcoins = $coinbet/$pricetobuy;
      echo "will buy ".$coinbet." ".$coin." worth of ".$coinpool[$x]." at ".$pricetobuy." (".$targetcoins." ".$coinpool[$x].") and will sell at ".$pricetosell." \n";
-     $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
-  //   echo "Bought ".$coinpool[$x].$coin." pair (".$targetcoins." ".$coinpool[$x]." ) at ".$pricetobuy." \n\n";
+  //   $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
+     echo "Bought ".$coinpool[$x].$coin." pair (".$targetcoins." ".$coinpool[$x]." ) at ".$pricetobuy." \n\n";
 
      sleep(3);
      $cbal = $ct->getCurrencyBalance( $coinpool[$x] );
-     $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
-  //   echo "Placing sell order for the ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." ".$coin."\n\n";
+  //   $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
+     echo "Placing sell order for the ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." ".$coin."\n\n";
      $sellorders[$x]['pair'] =  $coinpool[$x].$coin;
      $sellorders[$x]['amount'] =  $cbal;
      $sellorders[$x]['sellprice'] =  $pricetosell;
