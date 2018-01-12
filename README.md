@@ -19,7 +19,10 @@ Suggestions :
 
 Running :
 1. Use provided strategy_creator.html to create a strategy, or use BTC_0.0005_48_10_0.15_0.0005_0_100_48_0 or go online make your own : https://electronicgr.com/cryptobot/ielko-microtrader-strategies/strategy_creator.html
-2. If you want to run from the console use "php index-cli.php BTC_0.0005_48_10_0.15_0.0005_0_100_48_0" but if you call from the browser just visit http://localhost.or.any.other.address/index.php?strategy=BTC_0.0005_48_10_0.15_0.0005_0_100_48_0
+2. If you want to run from the console use "php index-cli.php BTC_0.0005_48_10_0.15_0.0005_0_100_48_0"
+
+
+Note that you can also run php index-cli_test.php BTC_0.0005_48_10_0.15_0.0005_0_100_48_0  and this will just run the script without executing any orders, just show you what it would have done. great way to test it with no risk.
 
 
 You need to adjust the variables.
