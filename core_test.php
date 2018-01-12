@@ -95,7 +95,7 @@ else {
       }
      echo "expecting ".$basecoinbal_pred. " ".$coin." if all goes good.. \n";
      echo "will get  ".$basecoinbal_real. " ".$coin." if I close all orders now.. \n";
-     get_url($analyzer."io.php?apikey=".base64_encode($API_KEY)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
+     get_url($analyzer."io.php?apikey=".base64_encode($API_KEY_CRYPTOPIA)."&strategy=".$strategy."&real_amount=".$basecoinbal_real."&good_amount=".$basecoinbal_pred."&type=submit_data");
 // send statistics to analytics server
 
 
@@ -194,12 +194,12 @@ echo $api_url_constr2."\n";
 //  $pricetosell = $pricetobuy_next-($pricetobuy_next*0.0001);
      $targetcoins = $coinbet/$pricetobuy;
      echo "will buy ".$coinbet." ".$coin." worth of ".$coinpool[$x]." at ".$pricetobuy." (".$targetcoins." ".$coinpool[$x].") and will sell at ".$pricetosell." \n";
-     $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
+  //   $ct->buy($coinpool[$x].$coin, $targetcoins, ($pricetobuy));
      echo "Bought ".$coinpool[$x].$coin." pair (".$targetcoins." ".$coinpool[$x]." ) at ".$pricetobuy." \n\n";
 
      sleep(3);
      $cbal = $ct->getCurrencyBalance( $coinpool[$x] );
-     $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
+  //   $ct->sell($coinpool[$x].$coin, $cbal, ($pricetosell));
      echo "Placing sell order for the ".$coinpool[$x].$coin." pair (".$cbal." ".$coinpool[$x]." ) at ".$pricetosell." ".$coin."\n\n";
      $sellorders[$x]['pair'] =  $coinpool[$x].$coin;
      $sellorders[$x]['amount'] =  $cbal;
