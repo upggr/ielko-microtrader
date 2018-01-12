@@ -18,11 +18,11 @@ Suggestions :
 3. I suggest you use the command line. If you dont, make sure your php enabled webserver can run php scripts that can last more than 5 minutes as checking all coins is a lengthy process.
 
 Running :
-1. Use provided strategy_creator.html to create a strategy, or use BTC_0.0005_48_10_0.15_0.0005_0_100_48_0 or go online make your own : https://electronicgr.com/cryptobot/ielko-microtrader-strategies/strategy_creator.html
-2. If you want to run from the console use "php index-cli.php BTC_0.0005_48_10_0.15_0.0005_0_100_48_0"
+1. Use provided strategy_creator.html to create a strategy, or use 0000000BTC_0000.00051_0000000010_0000000010_0000000.15_0000.00051_0000000000_0000000100_0000000020_0000000000 or go online make your own : https://electronicgr.com/cryptobot/ielko-microtrader-strategies/strategy_creator.html
+2. If you want to run from the console use "php index-cli.php 0000000BTC_0000.00051_0000000010_0000000010_0000000.15_0000.00051_0000000000_0000000100_0000000020_0000000000"
 
 
-Note that you can also run php index-cli_test.php BTC_0.0005_48_10_0.15_0.0005_0_100_48_0  and this will just run the script without executing any orders, just show you what it would have done. great way to test it with no risk.
+Note that you can also run php index-cli_test.php 0000000BTC_0000.00051_0000000010_0000000010_0000000.15_0000.00051_0000000000_0000000100_0000000020_0000000000  and this will just run the script without executing any orders, just show you what it would have done. great way to test it with no risk.
 
 
 You need to adjust the variables.
