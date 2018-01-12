@@ -36,7 +36,7 @@ echo "Play on coins that in comparison to the the coin have a ratio of less than
 echo "Play on coins that their transaction count in the past timeframe is more than : ".$lowvolume."\n";
 echo "Play on coins that are on open orders : ".$open_order_coins_flag."\n";
 //DOGE_10_48_10_0.20_502_0_100_10
-//php index-cli_test.php BTC_0.0005_48_10_0.15_0.0005_0_100_48_0
+//php index-cli_test.php 0000000BTC_0000.00051_0000000010_0000000010_0000000.15_0000.00051_0000000000_0000000100_0000000020_0000000000
 
 // fill coinpool with the coins that are on the current coin market
    $ct->updatePrices();
