@@ -8,7 +8,7 @@ try {
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
    $coinpool_all = array();
    $coinpool_price_target = array();
-   $coinpool_in_order = array();
+   $coinpool_in_order = array(); 
    $coinpool = array();
    $sellorders = array();
 //user supplied parameters
@@ -40,7 +40,7 @@ echo "Play on coins that are on open orders : ".$open_order_coins_flag."\n";
 echo "Play on coins that the latest sell/buy ratio is between ".$buy_sell_ratio_min." and ".$buy_sell_ratio_max."\n";
 //DOGE_10_48_10_0.20_502_0_100_10
 //php index-cli_test.php 0000000BTC_0000.00051_0000000010_0000000010_0000000.05_0000.00051_0000000000_0000000001_0000000020_0000000000_00000000.5_0000000001
-
+//000000NZDT_0000000001_0000000010_0000000010_0000000.05_00000001.1_0000000000_0000000100_0000000020_0000000000_00000000.5_0000000001
 // fill coinpool with the coins that are on the current coin market
    $ct->updatePrices();
    $tradepairs = $ct->getPrices();
