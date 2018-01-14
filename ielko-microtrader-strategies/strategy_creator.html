@@ -93,6 +93,20 @@
         <small id="onorder" class="form-text text-muted">only trade coins that are not order (0) or all coins (1)</small>
       </div>
 
+      <div class="form-group">
+        <label for="buy_sell_ratio_min">Buy sell ratio min</label>
+        <input type="number" min="0" class="form-control" id="buy_sell_ratio_min" aria-describedby="buy_sell_ratio_min" placeholder="0.5" value="0.5">
+        <small id="buy_sell_ratio_min" class="form-text text-muted">Only trade coins where the latest sell offer over the latest buy offer is more than this</small>
+      </div>
+
+
+      <div class="form-group">
+        <label for="buy_sell_ratio_max">Buy sell ratio max</label>
+        <input type="number" min="0" class="form-control" id="buy_sell_ratio_max" aria-describedby="buy_sell_ratio_max" placeholder="1" value="1">
+        <small id="buy_sell_ratio_max" class="form-text text-muted">Only trade coins where the latest sell offer over the latest buy offer is less than this</small>
+      </div>
+
+
       <div class="alert">
       </div>
 
@@ -120,9 +134,11 @@
       var target_coin_max_price = $("#target_coin_max_price").val();
       var lowvolume = $("#lowvolume").val();
       var onorder = $("#onorder").val();
+      var buy_sell_ratio_min = $("#buy_sell_ratio_min").val();
+      var buy_sell_ratio_max = $("#buy_sell_ratio_max").val();
       var strategy = pad(coin, 10) + "_" + pad(coincap, 10) + "_" + pad(hours, 10) + "_" + pad(buyifabove, 10) + "_" + pad(targetprofit, 10) + "_" + pad(coinbet, 10) + "_" + pad(target_coin_min_price, 10) + "_" + pad(target_coin_max_price,
-        10) + "_" + pad(lowvolume, 10) + "_" + pad(onorder, 10);
-      if (strategy.length == 109) {
+        10) + "_" + pad(lowvolume, 10) + "_" + pad(onorder, 10) + "_" + pad(buy_sell_ratio_min, 10) + "_" + pad(buy_sell_ratio_max, 10);
+      if (strategy.length == 129) {
         console.log(strategy);
         $('.alert').removeClass('alert-danger');
         $(".alert").empty().append("here is your strategy id : " + strategy + "<br /> You can now go and run php index-cli.php " + strategy);
