@@ -22,6 +22,8 @@ $target_coin_min_price =  ltrim($strategy_arr[6], '0');
 $target_coin_max_price =  ltrim($strategy_arr[7], '0');
 $lowvolume = ltrim($strategy_arr[8], '0');
 $open_order_coins_flag = ltrim($strategy_arr[9], '0');
+$buy_sell_ratio_min = ltrim($strategy_arr[10], '0');
+$buy_sell_ratio_max = ltrim($strategy_arr[11], '0');
 //user supplied parameters
 
   echo print_seperator("USER VARIABLES");
@@ -35,8 +37,9 @@ echo "Play on coins that in comparison to the the coin have a ratio of more than
 echo "Play on coins that in comparison to the the coin have a ratio of less than : ".$target_coin_max_price."\n";
 echo "Play on coins that their transaction count in the past timeframe is more than : ".$lowvolume."\n";
 echo "Play on coins that are on open orders : ".$open_order_coins_flag."\n";
+echo "Play on coins that the latest sell/buy ratio is between ".$buy_sell_ratio_min." and ".$buy_sell_ratio_max."\n";
 //DOGE_10_48_10_0.20_502_0_100_10
-//php index-cli_test.php 0000000BTC_0000.00051_0000000010_0000000010_0000000.15_0000.00051_0000000000_0000000100_0000000020_0000000000
+//php index-cli_test.php 0000000BTC_0000.00051_0000000010_0000000010_0000000.05_0000.00051_0000000000_0000000001_0000000020_0000000000_00000000.5_0000000001
 
 // fill coinpool with the coins that are on the current coin market
    $ct->updatePrices();
