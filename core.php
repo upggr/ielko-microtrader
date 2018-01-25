@@ -5,10 +5,9 @@ include 'config.php';
 $analyzer = "https://electronicgr.com/cryptobot/ielko-microtrader-strategies/";
 try {
    $ct = New Cryptopia($API_SECRET_CRYPTOPIA, $API_KEY_CRYPTOPIA);
-   $mycoinbalance = $ct->getCurrencyBalance( $coin );
    $coinpool_all = array();
    $coinpool_price_target = array();
-   $coinpool_in_order = array(); 
+   $coinpool_in_order = array();
    $coinpool = array();
    $sellorders = array();
 //user supplied parameters
@@ -25,7 +24,8 @@ $open_order_coins_flag = ltrim($strategy_arr[9], '0');
 $buy_sell_ratio_min = ltrim($strategy_arr[10], '0');
 $buy_sell_ratio_max = ltrim($strategy_arr[11], '0');
 //user supplied parameters
-
+$mycoinbalance = $ct->getCurrencyBalance( $coin );
+echo "=========".$coin." BALANCE : ".$mycoinbalance."=======\n";
   echo print_seperator("USER VARIABLES");
 echo "Target coin market : ".$coin."\n";
 echo "Bank to keep : ".$coincap."\n";
