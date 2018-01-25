@@ -6,6 +6,7 @@ $analyzer = "https://electronicgr.com/cryptobot/ielko-microtrader-strategies/";
 try {
    $ct = New Cryptopia($API_SECRET_CRYPTOPIA, $API_KEY_CRYPTOPIA);
    $mycoinbalance = $ct->getCurrencyBalance( $coin );
+   echo $mycoinbalance."\n";
    $coinpool_all = array();
    $coinpool_price_target = array();
    $coinpool_in_order = array();
