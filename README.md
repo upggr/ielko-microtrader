@@ -34,7 +34,7 @@ I have no responsibility on how you use this script.
 Don't just run it, read what it does first.
 
 
-Variables/Strategy
+Variables/Strategy - Note that there are no strategy files, this is just for illustration. you generate the strategy at https://electronicgr.com/cryptobot/ielko-microtrader-strategies/strategy_creator.html
 ---
 ![Variables/Strategy](https://github.com/upggr/ielko-microtrader/blob/master/screenshots/vars.png)
 
